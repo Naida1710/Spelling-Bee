@@ -21,5 +21,8 @@ const errorPopup = document.getElementById("error-popup");
 const instructionOverlay = document.getElementById("instructionOverlay");  
 const startQuizNow = document.getElementById("startQuizNow"); 
 
-const certificatePopup = document.getElementById("certificate-popup");  
+const certificatePopup = document.getElementById("certificate-popup"); 
+const certificateMessage = document.getElementById("certificate-message"); 
+
+const clickSound = new Audio("assets/audio/click-234708.mp3");   
   });
