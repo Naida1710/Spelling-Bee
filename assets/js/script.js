@@ -241,5 +241,24 @@ function startTimer() {
         button.style.color = "white"; 
         
         } 
+        // Only mark the selected wrong answer red 
+
+if (!isCorrect && selectedAnswerButton) { 
+
+    selectedAnswerButton.style.backgroundColor = "#f44336"; // Red 
+    
+    selectedAnswerButton.style.color = "white"; 
+    
+    } 
+    
+    popupMessage.textContent = isCorrect 
+    
+    ? "Correct!" 
+    
+    : "Wrong!"; 
+    
+    popup.style.display = "block"; 
         
         });
+        
+
