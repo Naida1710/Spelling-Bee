@@ -25,7 +25,7 @@ const certificatePopup = document.getElementById("certificate-popup");
 const certificateMessage = document.getElementById("certificate-message"); 
 
 const clickSound = new Audio("assets/audio/click-234708.mp3");   
-  });
+  
   const questions = { 
 
     easy: [ 
@@ -698,3 +698,80 @@ function showGameOverPopup() {
         // (e.g., clearing any previous content or selection) 
         
         }); 
+        function showAnswerPopup(isCorrect) { 
+
+            const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+            
+            const correctAnswer = currentQuestion.correct; 
+            
+             
+            
+            const answerButtons = document.querySelectorAll(".quiz-box"); 
+            
+             
+            
+            answerButtons.forEach(button => { 
+            
+            button.disabled = true; 
+            
+             
+            
+            if (button.innerText === correctAnswer) { 
+            
+            button.style.backgroundColor = "#4CAF50"; 
+            
+            button.style.color = "white"; 
+            
+            } 
+            
+            }); 
+            
+             
+            
+            if (!isCorrect && selectedAnswerButton) { 
+            
+            selectedAnswerButton.style.backgroundColor = "#f44336"; 
+            
+            selectedAnswerButton.style.color = "white"; 
+            
+            } 
+            
+             
+            
+            // ✅ Play sound effect 
+            
+            const correctSound = document.getElementById("correct-sound"); 
+            
+            const wrongSound = document.getElementById("wrong-sound"); 
+            
+             
+            
+            if (isCorrect) { 
+            
+            correctSound.play(); 
+            
+            popupMessage.textContent = "Correct!"; 
+            
+            } else { 
+            
+            wrongSound.play(); 
+            
+            popupMessage.textContent = "Wrong!"; 
+            
+            } 
+            
+             
+            
+            popup.style.display = "block"; 
+            
+            } 
+            
+             
+            
+             
+            
+             
+            
+             
+            
+            }); 
