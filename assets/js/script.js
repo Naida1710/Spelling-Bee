@@ -347,6 +347,49 @@ fiftyFiftyButton.addEventListener("click", () => {
     } 
     
     }); 
+    // Hide game-related UI 
+
+// Helper function to randomly select two incorrect answers 
+
+function getRandomIncorrectAnswers(incorrectAnswers) { 
+
+    // Randomly pick two answers 
+    
+    const randomIndex1 = Math.floor(Math.random() * incorrectAnswers.length); 
+    
+    let randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length); 
+    
+    // Ensure the two incorrect answers are not the same 
+    
+    while (randomIndex1 === randomIndex2) { 
+    
+    randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length); 
+    
+    } 
+    
+    return [incorrectAnswers[randomIndex1], incorrectAnswers[randomIndex2]]; 
+    function resetQuiz() { 
+    } 
+
+        score = 0; 
+        
+        currentQuestionIndex = 0; 
+        
+        document.getElementById("score").textContent = score; 
+        
+        clearInterval(timer); 
+        
+        countdownTime = 30; 
+        
+        timerElement.textContent = formatTime(countdownTime); 
+        
+        usedFiftyFiftyForLevel = false; 
+        
+        resetFiftyFiftyButton(); 
+        
+        selectedAnswerButton = null; 
+        
+        } 
         
        
         
