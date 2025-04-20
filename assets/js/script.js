@@ -429,8 +429,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // Show the popup that time's up
             popupMessage.textContent = "Time's up!";
             popup.style.display = "block";  // Show the popup
-        }, 500);
-    }
+    
+            nextQuestionButton.textContent = "Next";
+        nextQuestionButton.style.display = "block";  // Ensure the "Next" button is visible
+    }, 500);
+}
     
 
    // Show the certificate pop-up with a smooth fade-in effect
