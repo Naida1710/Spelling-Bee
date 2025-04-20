@@ -380,6 +380,98 @@ border: 2px solid #B8860B; /* Dark honey border */
     
     } 
 }
+
+/* Bee shape remains static */ 
+
+.bee-shape { 
+
+    position: absolute; 
+    
+    top: -30px; 
+    
+    left: 50%; 
+    
+   
+    
+    transform: translateX(-50%); 
+    
+    width: 50px; 
+    
+    height: 50px; 
+    
+    background-color: yellow; 
+    
+    border-radius: 50%; 
+    
+   
+    
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+    
+    /* No animation on the bee body */ 
+    
+    
+    
+    animation: none; 
+    
+    } 
+    
+     
+    
+    /* Wings animation */ 
+    
+    .bee-shape::before, 
+    
+    .bee-shape::after { 
+    
+    content: ""; 
+    
+    position: absolute; 
+    
+    top: 5px; 
+    
+    width: 40px; 
+    
+    height: 15px; 
+    
+    background-color: rgba(255, 255, 255, 0.6); 
+    
+    border-radius: 50%; 
+    
+   
+    
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+    
+   
+    
+    animation: fly-wings 1s ease-in-out infinite; /* Wing animation */ 
+    
+    } 
+    
+     
+    
+    .bee-shape::before { 
+    
+    left: -20px; 
+    
+   
+    
+    transform: rotate(-30deg); 
+    
+    } 
+    
+     
+    
+    .bee-shape::after { 
+    
+    right: -20px; 
+    
+   
+    
+    transform: rotate(30deg); 
+    
+    } 
+    
+     
          
     
      
