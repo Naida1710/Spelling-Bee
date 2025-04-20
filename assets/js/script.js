@@ -621,3 +621,80 @@ function showGameOverPopup() {
     }, 500); 
     
     } 
+    function showCertificate(score) { 
+
+        clearInterval(timer); 
+        
+        certificatePopup.classList.add("show"); 
+        
+        overlayy.style.display = "block"; 
+        
+        certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`; 
+        
+         
+        
+         
+        
+         
+        
+        } 
+        
+         
+        
+        // Close the certificate pop-up when the close button is clicked 
+        
+        document.getElementById("play-again-btn").addEventListener("click", () => { 
+        
+        clickSound.currentTime = 0; 
+        
+        clickSound.play(); 
+        
+         
+        
+        // Reset the quiz state 
+        
+        resetQuiz(); 
+        
+        resetLevel(); 
+        
+         
+        
+        // Close the certificate popup and overlay 
+        
+        certificatePopup.classList.remove("show"); 
+        
+        overlayy.style.display = "none"; 
+        
+         
+        
+        // Show the start quiz section (home page) only, and hide other sections 
+        
+        startQuizSection.style.display = "block"; // Home page section visible 
+        
+        difficultySelection.style.display = "none"; // Hide difficulty selection (no need for it) 
+        
+        quizArea.style.display = "none"; // Hide quiz area if you want to reset everything 
+        
+         
+        
+        // Reset the progress table (question count, score, and timer) 
+        
+        document.getElementById("question-number").textContent = "0"; // Start from question 1 
+        
+        document.getElementById("score").textContent = "0"; // Reset score to 0 
+        
+        timerElement.textContent = formatTime(countdownTime);  
+        
+        // Reset timer to the starting time 
+        
+         
+        
+         
+        
+         
+        
+        // Optionally reset any other UI elements that need resetting 
+        
+        // (e.g., clearing any previous content or selection) 
+        
+        }); 
