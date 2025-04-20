@@ -624,6 +624,43 @@ border: 2px solid #B8860B; /* Dark honey border */
     transform: scale(1.1); 
     
     }  
+
+
+    
+
+/* Powerful message styling */ 
+
+#popup-message { 
+
+    margin-top: 110px; /* Reset any margin that was pushing it down */ 
+    
+    position: absolute; 
+    
+    display: inline; 
+    
+    left: 50%; 
+    
+    top: 50%; 
+    
+   
+    
+    transform: translate(-50%, -50%); 
+    
+     
+    
+     
+    
+    font-size: 26px; 
+    
+    font-weight: 900; 
+    
+    text-transform: uppercase; 
+    
+    letter-spacing: 2px; 
+    
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
+    
+    }  
     
      
     
