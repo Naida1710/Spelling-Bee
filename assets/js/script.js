@@ -8,5 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizOptionsContainer = document.getElementById("quiz-options");
     const submitButton = document.getElementById("submitAnswer"); 
 
-const quizArea = document.querySelector(".quiz-area");  
+const quizArea = document.querySelector(".quiz-area"); 
+const popup = document.getElementById("popup"); 
+
+const popupMessage = document.getElementById("popup-message");  
   });
