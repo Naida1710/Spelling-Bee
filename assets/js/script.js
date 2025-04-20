@@ -13,5 +13,7 @@ const homeButton = document.getElementById("homeButton");
 const popup = document.getElementById("popup"); 
 
 const popupMessage = document.getElementById("popup-message"); 
-const nextQuestionButton = document.getElementById("nextButton");  
+const nextQuestionButton = document.getElementById("nextButton"); 
+const timerElement = document.getElementById("timer");
+const fiftyFiftyButton = document.getElementById("fiftyFiftyButton");   
   });
