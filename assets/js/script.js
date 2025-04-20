@@ -194,3 +194,28 @@ function formatTime(seconds) {
      
     
     } 
+     
+
+function startTimer() { 
+
+    clearInterval(timer); 
+    
+    timer = setInterval(() => { 
+    
+    countdownTime--; 
+    
+    timerElement.textContent = formatTime(countdownTime); 
+    
+    if (countdownTime <= 0) { 
+    
+    clearInterval(timer); 
+    
+    highlightCorrectAndWrongAnswers(); 
+    
+    showGameOverPopup(); 
+    
+    } 
+    
+    }, 1000); 
+    
+    } 
