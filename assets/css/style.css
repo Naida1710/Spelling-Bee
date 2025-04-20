@@ -8,6 +8,36 @@ html, body {
     padding: 0; 
     } 
 
+    body { 
+
+        background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); 
+        
+      
+        
+        display: flex; 
+        
+         
+        
+        
+        
+        flex-direction: column; 
+        
+        min-height: 100vh; 
+        
+        background-size: cover; /* Covers the whole screen */ 
+        
+        overflow-x: hidden; 
+        
+        font-family: 'Comic Sans MS', 'Trebuchet MS', cursive; 
+        
+         
+        
+        color: #3a3a3a; 
+        
+        text-align: center; 
+        
+        } 
+
 
 /* Heading and logo */ 
 
