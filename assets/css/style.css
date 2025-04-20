@@ -178,6 +178,34 @@ td {
             
             } 
 
+            #start-screen { 
+
+               
+                
+                display: flex; 
+                
+             
+                
+                align-items: flex-start; 
+                
+                
+                
+                -ms-flex-pack: center; 
+                
+                justify-content: center; 
+               
+                
+                align-items: center; 
+                
+                gap: 20px; 
+                
+                margin-top: 20px; 
+                
+                position: relative; 
+                
+                top: -20px; 
+                
+                } 
              
 
 #difficulty-selection { 
@@ -354,7 +382,7 @@ border: 2px solid #B8860B; /* Dark honey border */
 
             /* Bee wings animation for the popup */ 
 
-@-webkit-keyframes fly-wings { 
+@keyframes fly-wings { 
 
     0% { 
     
