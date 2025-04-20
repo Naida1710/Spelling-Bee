@@ -434,3 +434,7 @@ function resetLevel() {
         const currentQuestion = currentQuestions[currentQuestionIndex]; 
     }  
 
+    quizOptionsContainer.innerHTML = ""; 
+
+document.getElementById("quiz-question-text").textContent = "Choose the correct spelling:"; 
+
