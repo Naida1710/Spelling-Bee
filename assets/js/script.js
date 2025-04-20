@@ -111,6 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
    
+        startQuizNow.addEventListener("click", () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+        
+            instructionOverlay.style.display = "none";
+            loadQuestion();
+        });
+        
 
    
 
