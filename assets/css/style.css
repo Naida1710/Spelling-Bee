@@ -768,6 +768,15 @@ border: 2px solid #B8860B; /* Dark honey border */
         background-color: #e5c100; 
         
         } 
+        .quiz-box.selected { 
+
+            background-color: #CC5500; 
+            
+             
+            
+            color: black; 
+            
+            } 
         
          
         
@@ -801,7 +810,63 @@ border: 2px solid #B8860B; /* Dark honey border */
         
         } 
     
+     /* 50/50 Button */ 
+
+#fiftyFiftyButton { 
+
+    padding: 10px 10px; 
+    
+    font-size: 25px; 
+    
+    background-color: white; 
+    
+    color: #28a745; 
+    
+    border: 2px solid #28a745; 
+    
+    border-radius: 20px; 
+    
+    cursor: pointer; 
+    
+   
+    
+    transition: -webkit-transform 0.3s; 
+    
+    
+    
+    transition: transform 0.3s; 
+    
+    transition: transform 0.3s, -webkit-transform 0.3s; 
+    
+    font-family: 'Comic Sans MS', 'Trebuchet MS', cursive; 
+    
      
+    
+    } 
+    
+     
+    
+    #fiftyFiftyButton:hover { 
+    
+    
+    
+    transform: scale(1.1); 
+    
+    } 
+    
+    #fiftyFiftyButton:disabled { 
+    
+    pointer-events: none; /* Disable pointer events so it can't be hovered */ 
+    
+   
+    
+    transform: none; /* Remove any zoom-in or transform effect */ 
+    
+    cursor: not-allowed; /* Change cursor to indicate it's disabled */ 
+    
+    background-color: #555; 
+    
+    } 
     
    
 
