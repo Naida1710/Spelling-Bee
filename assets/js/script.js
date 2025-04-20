@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById("submitAnswer"); 
 
 const quizArea = document.querySelector(".quiz-area"); 
+const homeButton = document.getElementById("homeButton"); 
 const popup = document.getElementById("popup"); 
 
-const popupMessage = document.getElementById("popup-message");  
+const popupMessage = document.getElementById("popup-message"); 
+const nextQuestionButton = document.getElementById("nextButton");  
   });
