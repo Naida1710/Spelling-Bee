@@ -37,6 +37,13 @@ html, body {
         text-align: center; 
         
         } 
+        main { 
+
+             
+            
+            flex: 1; 
+            
+            } 
 
 
 /* Heading and logo */ 
