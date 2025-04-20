@@ -1,461 +1,535 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const difficultyButtons = document.querySelectorAll(".difficulty-btn");
-    const difficultySelection = document.getElementById("difficulty-selection");
-    const startQuizSection = document.getElementById("start-quiz");
-    const startQuizButton = document.getElementById("startQuiz");
-    const quizOptionsContainer = document.getElementById("quiz-options");
-    const submitButton = document.getElementById("submitAnswer");
-    const quizArea = document.querySelector(".quiz-area");
-    const homeButton = document.getElementById("homeButton");
-    const popup = document.getElementById("popup");
-    const popupMessage = document.getElementById("popup-message");
-    const nextQuestionButton = document.getElementById("nextButton");
-    const timerElement = document.getElementById("timer");
-    const fiftyFiftyButton = document.getElementById("fiftyFiftyButton");
-    const errorPopup = document.getElementById("error-popup");
-    const instructionOverlay = document.getElementById("instructionOverlay");
-    const startQuizNow = document.getElementById("startQuizNow");
-    const certificatePopup = document.getElementById("certificate-popup");
-    const certificateMessage = document.getElementById("certificate-message");
-    const clickSound = new Audio("assets/audio/click-234708.mp3"); // Update path if needed
+  const difficultyButtons = document.querySelectorAll(".difficulty-btn");
+  const difficultySelection = document.getElementById("difficulty-selection");
+  const startQuizSection = document.getElementById("start-quiz");
+  const startQuizButton = document.getElementById("startQuiz");
+  const quizOptionsContainer = document.getElementById("quiz-options");
+  const submitButton = document.getElementById("submitAnswer");
+  const quizArea = document.querySelector(".quiz-area");
+  const homeButton = document.getElementById("homeButton");
+  const popup = document.getElementById("popup");
+  const popupMessage = document.getElementById("popup-message");
+  const nextQuestionButton = document.getElementById("nextButton");
+  const timerElement = document.getElementById("timer");
+  const fiftyFiftyButton = document.getElementById("fiftyFiftyButton");
+  const errorPopup = document.getElementById("error-popup");
+  const instructionOverlay = document.getElementById("instructionOverlay");
+  const startQuizNow = document.getElementById("startQuizNow");
+  const certificatePopup = document.getElementById("certificate-popup");
+  const certificateMessage = document.getElementById("certificate-message");
+  const clickSound = new Audio("assets/audio/click-234708.mp3"); // Update path if needed
 
+  const overlayy = document.querySelector(".overlayy");
 
+  let currentQuestionIndex = 0;
+  let currentLevel = "easy";
+  let score = 0;
+  let countdownTime = 30;
+  let timer;
+  let usedFiftyFiftyForLevel = false;
+  let selectedAnswerButton = null;
 
+  const questions = {
+    easy: [
+      {
+        question: "Choose the correct spelling:",
+        answers: ["bananna", "banana", "baanana", "banan"],
+        correct: "banana",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["definately", "definitely", "definatelye", "definitly"],
+        correct: "definitely",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["realy", "really", "reely", "realyy"],
+        correct: "really",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["applle", "apple", "aple", "appl"],
+        correct: "apple",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["freind", "frend", "friend", "frendi"],
+        correct: "friend",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["dog", "dowg", "doog", "dogg"],
+        correct: "dog",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["kat", "catt", "cat", "caat"],
+        correct: "cat",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["hous", "howse", "huose", "house"],
+        correct: "house",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["hapi", "hapyy", "happy", "hapy"],
+        correct: "happy",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["school", "scoll", "shoool", "skool"],
+        correct: "school",
+      },
+    ],
+    medium: [
+      {
+        question: "Choose the correct spelling:",
+        answers: ["strawberry", "strawbarry", "stravberri", "strawberi"],
+        correct: "strawberry",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["milion", "million", "miliun", "milioon"],
+        correct: "million",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["butiful", "beutiful", "beautiful", "beutiful"],
+        correct: "beautiful",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["Febraury", "February", "Februery", "Februry"],
+        correct: "February",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["enviroment", "envirenment", "enviorment", "environment"],
+        correct: "environment",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["libary", "liberry", "librery", "library"],
+        correct: "library",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["buisness", "business", "busyness", "busynes"],
+        correct: "business",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["horse", "hors", "horz", "hoars"],
+        correct: "horse",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["cloaud", "cloude", "cloud", "kloude"],
+        correct: "cloud",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["shallow", "schalow", "shalow", "shalov"],
+        correct: "shallow",
+      },
+    ],
+    hard: [
+      {
+        question: "Choose the correct spelling:",
+        answers: ["accomodate", "accommodate", "acommodate", "accomadate"],
+        correct: "accommodate",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["seperate", "separrate", "separate", "seperrate"],
+        correct: "separate",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["commitee", "committe", "committee", "comittee"],
+        correct: "committee",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["occured", "occurred", "occureded", "ocurred"],
+        correct: "occurred",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["begining", "begininng", "beggining", "beginning"],
+        correct: "beginning",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["embarass", "embarras", "embarrass", "embaras"],
+        correct: "embarrass",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["neccessary", "necessary", "necesary", "necessery"],
+        correct: "necessary",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["priviledge", "privelege", "privilege", "privilage"],
+        correct: "privilege",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["existense", "existence", "existance", "exzistence"],
+        correct: "existence",
+      },
+      {
+        question: "Choose the correct spelling:",
+        answers: ["recieve", "receive", "receeve", "receve"],
+        correct: "receive",
+      },
+    ],
 
+    // Medium and Hard questions follow a similar pattern...
+  };
 
-    const overlayy = document.querySelector(".overlayy");
+  startQuizSection.style.display = "block";
+  quizArea.style.display = "none";
+  popup.style.display = "none";
+  errorPopup.style.display = "none";
+  difficultySelection.style.display = "none";
+  instructionOverlay.style.display = "none";
 
-    let currentQuestionIndex = 0;
-    let currentLevel = 'easy';
-    let score = 0;
-    let countdownTime = 30;
-    let timer;
-    let usedFiftyFiftyForLevel = false;
-    let selectedAnswerButton = null;
-   
-    
-    const questions = {
-        easy: [
-            { question: "Choose the correct spelling:", answers: ["bananna", "banana", "baanana", "banan"], correct: "banana"},
-            { question: "Choose the correct spelling:", answers: ["definately", "definitely", "definatelye", "definitly"], correct: "definitely" },
-            { question: "Choose the correct spelling:", answers: ["realy", "really", "reely", "realyy"], correct: "really" },
-            { question: "Choose the correct spelling:", answers: ["applle", "apple", "aple", "appl"], correct: "apple" },
-            { question: "Choose the correct spelling:", answers: ["freind", "frend", "friend", "frendi"], correct: "friend"},
-            { question: "Choose the correct spelling:", answers: ["dog", "dowg", "doog", "dogg"], correct: "dog" },
-            { question: "Choose the correct spelling:", answers: ["kat", "catt", "cat", "caat"], correct: "cat" },
-            { question: "Choose the correct spelling:", answers: ["hous", "howse", "huose", "house"], correct: "house" },
-            { question: "Choose the correct spelling:", answers: ["hapi", "hapyy", "happy", "hapy"], correct: "happy"},
-            { question: "Choose the correct spelling:", answers: ["school", "scoll", "shoool", "skool"], correct: "school"}
-        ],
-        medium: [
-            { question: "Choose the correct spelling:", answers: ["strawberry", "strawbarry", "stravberri", "strawberi"], correct: "strawberry"},
-            { question: "Choose the correct spelling:", answers: ["milion", "million", "miliun", "milioon"], correct: "million"},
-            { question: "Choose the correct spelling:", answers: ["butiful", "beutiful", "beautiful", "beutiful"], correct: "beautiful" },
-            { question: "Choose the correct spelling:", answers: ["Febraury", "February", "Februery", "Februry"], correct: "February"},
-            { question: "Choose the correct spelling:", answers: ["enviroment", "envirenment", "enviorment", "environment"], correct: "environment"},
-            { question: "Choose the correct spelling:", answers: ["libary", "liberry", "librery", "library"], correct: "library" },
-            { question: "Choose the correct spelling:", answers: ["buisness", "business", "busyness", "busynes"], correct: "business" },
-            { question: "Choose the correct spelling:", answers: ["horse", "hors", "horz", "hoars"], correct: "horse"},
-            { question: "Choose the correct spelling:", answers: ["cloaud", "cloude", "cloud", "kloude"], correct: "cloud"},
-            { question: "Choose the correct spelling:", answers: ["shallow", "schalow", "shalow", "shalov"], correct: "shallow"}
-        ],
-       hard: [
-            { question: "Choose the correct spelling:", answers: ["accomodate", "accommodate", "acommodate", "accomadate"], correct: "accommodate" },
-            { question: "Choose the correct spelling:", answers: ["seperate", "separrate", "separate", "seperrate"], correct: "separate" },
-            { question: "Choose the correct spelling:", answers: ["commitee", "committe", "committee", "comittee"], correct: "committee" },
-            { question: "Choose the correct spelling:", answers: ["occured", "occurred", "occureded", "ocurred"], correct: "occurred" },
-            { question: "Choose the correct spelling:", answers: ["begining", "begininng", "beggining", "beginning"], correct: "beginning" },
-            { question: "Choose the correct spelling:", answers: ["embarass", "embarras", "embarrass", "embaras"], correct: "embarrass" },
-            { question: "Choose the correct spelling:", answers: ["neccessary", "necessary", "necesary", "necessery"], correct: "necessary" },
-            { question: "Choose the correct spelling:", answers: ["priviledge", "privelege", "privilege", "privilage"], correct: "privilege" },
-            { question: "Choose the correct spelling:", answers: ["existense", "existence", "existance", "exzistence"], correct: "existence" },
-            { question: "Choose the correct spelling:", answers: ["recieve", "receive", "receeve", "receve"], correct: "receive" }
-          ]
-          
-        // Medium and Hard questions follow a similar pattern...
-    };
+  difficultyButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      clickSound.currentTime = 0;
+      clickSound.play();
 
+      currentLevel = button.dataset.level;
+      resetQuiz();
+      resetLevel();
+      difficultySelection.style.display = "none";
+      quizArea.style.display = "block";
+      instructionOverlay.style.display = "flex";
+    });
+  });
+
+  startQuizButton.addEventListener("click", (event) => {
+    startQuizButton.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent form submission
+      clickSound.currentTime = 0;
+      clickSound.play();
+      startQuizSection.style.display = "none";
+      difficultySelection.style.display = "block";
+    });
+  });
+
+  startQuizNow.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    instructionOverlay.style.display = "none";
+    loadQuestion();
+  });
+
+  homeButton.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    resetQuiz();
+    resetLevel();
+
+    // Hide game-related UI
     startQuizSection.style.display = "block";
+    difficultySelection.style.display = "none";
     quizArea.style.display = "none";
     popup.style.display = "none";
     errorPopup.style.display = "none";
-    difficultySelection.style.display = "none";
-    instructionOverlay.style.display = "none";
 
-    difficultyButtons.forEach(button => {
-       
-        button.addEventListener("click", () => {
-           
-                clickSound.currentTime = 0;
-                clickSound.play();
-           
-            
-            
-            currentLevel = button.dataset.level;
-            resetQuiz();
-            resetLevel();
-            difficultySelection.style.display = "none";
-            quizArea.style.display = "block";
-            instructionOverlay.style.display = "flex";
-        });
-    });
-    
-        startQuizButton.addEventListener("click", (event) => {
-             
-            startQuizButton.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent form submission
-                clickSound.currentTime = 0;
-                clickSound.play();
-                startQuizSection.style.display = "none";
-                difficultySelection.style.display = "block";
-            });
-        });
-   
-        startQuizNow.addEventListener("click", () => {
-            clickSound.currentTime = 0;
-            clickSound.play();
-        
-            instructionOverlay.style.display = "none";
-            loadQuestion();
-        });
-        
+    // Clear any selected answers or quiz text
+    quizOptionsContainer.innerHTML = "";
+    document.getElementById("quiz-question-text").textContent = "";
+    document.getElementById("question-number").textContent = "0";
+    document.getElementById("score").textContent = "0";
+  });
 
-   
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, "0");
+    const secs = (seconds % 60).toString().padStart(2, "0");
+    return `${mins}:${secs}`;
+  }
 
-    homeButton.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-                clickSound.play();
-        
-        
-       
-        resetQuiz();
-        resetLevel();
-    
-        // Hide game-related UI
-        startQuizSection.style.display = "block";
-        difficultySelection.style.display = "none";
-        quizArea.style.display = "none";
-        popup.style.display = "none";
-        errorPopup.style.display = "none";
-    
-        // Clear any selected answers or quiz text
-        quizOptionsContainer.innerHTML = "";
-        document.getElementById("quiz-question-text").textContent = "";
-        document.getElementById("question-number").textContent = "0";
-        document.getElementById("score").textContent = "0";
-    });
-    
-    
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+      countdownTime--;
+      timerElement.textContent = formatTime(countdownTime);
 
-    function formatTime(seconds) {
-        const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-        const secs = (seconds % 60).toString().padStart(2, '0');
-        return `${mins}:${secs}`;
-
-    }
-
-    function startTimer() {
+      if (countdownTime <= 0) {
         clearInterval(timer);
-        timer = setInterval(() => {
-            countdownTime--;
-            timerElement.textContent = formatTime(countdownTime);
-    
-            if (countdownTime <= 0) {
-                clearInterval(timer);
-                highlightCorrectAndWrongAnswers();
-                showGameOverPopup();
-            }
-        }, 1000);
-    }
+        highlightCorrectAndWrongAnswers();
+        showGameOverPopup();
+      }
+    }, 1000);
+  }
 
-  
-    function showAnswerPopup(isCorrect) {
-        clearInterval(timer); // 
-        const currentQuestion = questions[currentLevel][currentQuestionIndex];
-        const correctAnswer = currentQuestion.correct;
-    
-        const answerButtons = document.querySelectorAll(".quiz-box");
-    
-        answerButtons.forEach(button => {
-            button.disabled = true;
-    
-            if (button.innerText === correctAnswer) {
-                button.style.backgroundColor = "#4CAF50"; // Green
-                button.style.color = "white";
-            }
-        });
-    
-        // Only mark the selected wrong answer red
-        if (!isCorrect && selectedAnswerButton) {
-            selectedAnswerButton.style.backgroundColor = "#f44336"; // Red
-            selectedAnswerButton.style.color = "white";
-        }
-        
-       
-        
-        
-       
-    
-        
-        popupMessage.textContent = isCorrect
-        ? "Correct!"
-        : "Wrong!";
-    
-       
-        popup.style.display = "block";
-    }
-    
-    function highlightCorrectAndWrongAnswers() {
-        const currentQuestion = questions[currentLevel][currentQuestionIndex];
-        const correctAnswer = currentQuestion.correct;
-    
-        // Loop through all the answer buttons and highlight them
-        document.querySelectorAll(".quiz-box").forEach(button => {
-            button.disabled = true;  // Disable all answer buttons
-    
-            if (button.innerText === correctAnswer) {
-                // Correct answer: Green background
-                button.style.backgroundColor = "#4CAF50";  // Green
-                button.style.color = "white";  // White text
-            } else {
-                // Incorrect answer: Red background
-                button.style.backgroundColor = "#f44336";  // Red
-                button.style.color = "white";  // White text
-            }
-        });
-        
-      
-    }
-    
-    fiftyFiftyButton.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-                clickSound.play();
-        
+  function showAnswerPopup(isCorrect) {
+    clearInterval(timer); //
+    const currentQuestion = questions[currentLevel][currentQuestionIndex];
+    const correctAnswer = currentQuestion.correct;
 
-        
-        if (!usedFiftyFiftyForLevel) {
-            usedFiftyFiftyForLevel = true;
-            fiftyFiftyButton.disabled = true;  // Disable the 50/50 button after use
-            fiftyFiftyButton.textContent = "Used";  // Change text to 'Used'
-    
-            // Get the current question and the correct answer
-            const currentQuestion = questions[currentLevel][currentQuestionIndex];
-            const correctAnswer = currentQuestion.correct;
-    
-            // Get the incorrect answers by filtering out the correct one
-            const incorrectAnswers = currentQuestion.answers.filter(answer => answer !== correctAnswer);
-    
-            // Randomly pick two incorrect answers to hide
-            const [incorrect1, incorrect2] = getRandomIncorrectAnswers(incorrectAnswers);
-    
-            // Hide the two incorrect answers by setting their visibility to 'hidden' and disabling them
-            document.querySelectorAll(".quiz-box").forEach(button => {
-                if (button.innerText === incorrect1 || button.innerText === incorrect2) {
-                    button.style.visibility = "hidden";
-                    button.disabled = true;  // Disable the button so users cannot click it
-                }
-            });
-        }
+    const answerButtons = document.querySelectorAll(".quiz-box");
+
+    answerButtons.forEach((button) => {
+      button.disabled = true;
+
+      if (button.innerText === correctAnswer) {
+        button.style.backgroundColor = "#4CAF50"; // Green
+        button.style.color = "white";
+      }
     });
-    
-    // Helper function to randomly select two incorrect answers
-    function getRandomIncorrectAnswers(incorrectAnswers) {
-        // Randomly pick two answers
-        const randomIndex1 = Math.floor(Math.random() * incorrectAnswers.length);
-        let randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length);
-        
-        // Ensure the two incorrect answers are not the same
-        while (randomIndex1 === randomIndex2) {
-            randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length);
-        }
-        
-        return [incorrectAnswers[randomIndex1], incorrectAnswers[randomIndex2]];
-    }
-    
 
-    function resetQuiz() {
-        score = 0;
-        currentQuestionIndex = 0;
+    // Only mark the selected wrong answer red
+    if (!isCorrect && selectedAnswerButton) {
+      selectedAnswerButton.style.backgroundColor = "#f44336"; // Red
+      selectedAnswerButton.style.color = "white";
+    }
+
+    popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
+
+    popup.style.display = "block";
+  }
+
+  function highlightCorrectAndWrongAnswers() {
+    const currentQuestion = questions[currentLevel][currentQuestionIndex];
+    const correctAnswer = currentQuestion.correct;
+
+    // Loop through all the answer buttons and highlight them
+    document.querySelectorAll(".quiz-box").forEach((button) => {
+      button.disabled = true; // Disable all answer buttons
+
+      if (button.innerText === correctAnswer) {
+        // Correct answer: Green background
+        button.style.backgroundColor = "#4CAF50"; // Green
+        button.style.color = "white"; // White text
+      } else {
+        // Incorrect answer: Red background
+        button.style.backgroundColor = "#f44336"; // Red
+        button.style.color = "white"; // White text
+      }
+    });
+  }
+
+  fiftyFiftyButton.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    if (!usedFiftyFiftyForLevel) {
+      usedFiftyFiftyForLevel = true;
+      fiftyFiftyButton.disabled = true; // Disable the 50/50 button after use
+      fiftyFiftyButton.textContent = "Used"; // Change text to 'Used'
+
+      // Get the current question and the correct answer
+      const currentQuestion = questions[currentLevel][currentQuestionIndex];
+      const correctAnswer = currentQuestion.correct;
+
+      // Get the incorrect answers by filtering out the correct one
+      const incorrectAnswers = currentQuestion.answers.filter(
+        (answer) => answer !== correctAnswer
+      );
+
+      // Randomly pick two incorrect answers to hide
+      const [incorrect1, incorrect2] =
+        getRandomIncorrectAnswers(incorrectAnswers);
+
+      // Hide the two incorrect answers by setting their visibility to 'hidden' and disabling them
+      document.querySelectorAll(".quiz-box").forEach((button) => {
+        if (
+          button.innerText === incorrect1 ||
+          button.innerText === incorrect2
+        ) {
+          button.style.visibility = "hidden";
+          button.disabled = true; // Disable the button so users cannot click it
+        }
+      });
+    }
+  });
+
+  // Helper function to randomly select two incorrect answers
+  function getRandomIncorrectAnswers(incorrectAnswers) {
+    // Randomly pick two answers
+    const randomIndex1 = Math.floor(Math.random() * incorrectAnswers.length);
+    let randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length);
+
+    // Ensure the two incorrect answers are not the same
+    while (randomIndex1 === randomIndex2) {
+      randomIndex2 = Math.floor(Math.random() * incorrectAnswers.length);
+    }
+
+    return [incorrectAnswers[randomIndex1], incorrectAnswers[randomIndex2]];
+  }
+
+  function resetQuiz() {
+    score = 0;
+    currentQuestionIndex = 0;
+    document.getElementById("score").textContent = score;
+    clearInterval(timer);
+    countdownTime = 30;
+    timerElement.textContent = formatTime(countdownTime);
+    usedFiftyFiftyForLevel = false;
+    resetFiftyFiftyButton();
+    selectedAnswerButton = null;
+  }
+
+  function resetLevel() {
+    usedFiftyFiftyForLevel = false;
+    resetFiftyFiftyButton();
+  }
+
+  function resetFiftyFiftyButton() {
+    fiftyFiftyButton.disabled = usedFiftyFiftyForLevel;
+    fiftyFiftyButton.textContent = usedFiftyFiftyForLevel ? "Used" : "50/50";
+  }
+
+  function enableFiftyFiftyButton() {
+    if (!usedFiftyFiftyForLevel) {
+      fiftyFiftyButton.disabled = false;
+    }
+  }
+
+  function loadQuestion() {
+    const currentQuestions = questions[currentLevel];
+    const currentQuestion = currentQuestions[currentQuestionIndex];
+
+    quizOptionsContainer.innerHTML = "";
+    document.getElementById("quiz-question-text").textContent =
+      "Choose the correct spelling:";
+
+    currentQuestion.answers.forEach((answer) => {
+      const button = document.createElement("button");
+      button.classList.add("quiz-box");
+      button.innerText = answer;
+      button.addEventListener("click", () => {
+        document
+          .querySelectorAll(".quiz-box")
+          .forEach((btn) => btn.classList.remove("selected"));
+        button.classList.add("selected");
+        selectedAnswerButton = button;
+      });
+      quizOptionsContainer.appendChild(button);
+    });
+
+    document.getElementById("question-number").textContent =
+      currentQuestionIndex + 1;
+    selectedAnswerButton = null;
+
+    enableFiftyFiftyButton();
+
+    errorPopup.style.display = "none";
+    popup.style.display = "none";
+
+    countdownTime = 30;
+    timerElement.textContent = formatTime(countdownTime);
+    startTimer();
+  }
+
+  submitButton.addEventListener("click", () => {
+    errorPopup.classList.add("show");
+
+    const selectedAnswerButton = document.querySelector(".quiz-box.selected");
+
+    if (!selectedAnswerButton) {
+      showErrorPopup();
+    } else {
+      clearInterval(timer); // Move here: only stop the timer if an answer is selected
+      const currentQuestion = questions[currentLevel][currentQuestionIndex];
+      const correctAnswer = currentQuestion.correct;
+
+      if (selectedAnswerButton.innerText === correctAnswer) {
+        score++;
         document.getElementById("score").textContent = score;
-        clearInterval(timer);
-        countdownTime = 30;
-        timerElement.textContent = formatTime(countdownTime);
-        usedFiftyFiftyForLevel = false;
-        resetFiftyFiftyButton();
-        selectedAnswerButton = null;
+        showAnswerPopup(true);
+      } else {
+        showAnswerPopup(false);
+      }
+
+      nextQuestionButton.style.display = "block";
+      if (currentQuestionIndex === questions[currentLevel].length - 1) {
+        nextQuestionButton.textContent = "Results";
+      } else {
+        nextQuestionButton.textContent = "Next";
+      }
     }
+  });
 
-    function resetLevel() {
-        usedFiftyFiftyForLevel = false;
-        resetFiftyFiftyButton();
+  function showErrorPopup() {
+    errorPopup.innerText = "Please select an answer first.";
+    errorPopup.style.display = "block";
+    setTimeout(() => {
+      errorPopup.style.display = "none";
+    }, 600); // auto-hide after 0.5 seconds
+  }
+
+  nextQuestionButton.addEventListener("click", () => {
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    // hide popup
+    popup.style.display = "none";
+
+    // load next question
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions[currentLevel].length) {
+      loadQuestion();
+    } else {
+      showCertificate(score); // Show certificate after all questions
     }
+  });
 
-    function resetFiftyFiftyButton() {
-        fiftyFiftyButton.disabled = usedFiftyFiftyForLevel;
-        fiftyFiftyButton.textContent = usedFiftyFiftyForLevel ? "Used" : "50/50";
-    }
-    
+  // Get elements
 
-    function enableFiftyFiftyButton() {
-        if (!usedFiftyFiftyForLevel) {
-            fiftyFiftyButton.disabled = false;
-        }
-    }
+  function showGameOverPopup() {
+    setTimeout(() => {
+      // Get the current question
+      const currentQuestion = questions[currentLevel][currentQuestionIndex];
+      const correctAnswer = currentQuestion.correct;
 
-    function loadQuestion() {
-        const currentQuestions = questions[currentLevel];
-        const currentQuestion = currentQuestions[currentQuestionIndex];
-
-        quizOptionsContainer.innerHTML = "";
-        document.getElementById("quiz-question-text").textContent = "Choose the correct spelling:";
-
-
-        currentQuestion.answers.forEach(answer => {
-            const button = document.createElement("button");
-            button.classList.add("quiz-box");
-            button.innerText = answer;
-            button.addEventListener("click", () => {
-                document.querySelectorAll(".quiz-box").forEach(btn => btn.classList.remove("selected"));
-                button.classList.add("selected");
-                selectedAnswerButton = button;
-            });
-            quizOptionsContainer.appendChild(button);
-        });
-
-        document.getElementById("question-number").textContent = currentQuestionIndex + 1;
-        selectedAnswerButton = null;
-
-        enableFiftyFiftyButton();
-
-        errorPopup.style.display = "none";
-        popup.style.display = "none";
-
-        countdownTime = 30;
-        timerElement.textContent = formatTime(countdownTime);
-        startTimer();
-    }
-
-  
-
-   
-
-   
-    
-    submitButton.addEventListener("click", () => {
-        errorPopup.classList.add('show');
-        
-
-        const selectedAnswerButton = document.querySelector(".quiz-box.selected");
-    
-        if (!selectedAnswerButton) {
-            showErrorPopup();
+      // Highlight the correct answer and wrong answers
+      document.querySelectorAll(".quiz-box").forEach((button) => {
+        button.disabled = true; // Disable all answer buttons
+        if (button.innerText === correctAnswer) {
+          button.style.backgroundColor = "#4CAF50"; // Green for correct
+          button.style.color = "white";
         } else {
-            clearInterval(timer); // Move here: only stop the timer if an answer is selected
-            const currentQuestion = questions[currentLevel][currentQuestionIndex];
-            const correctAnswer = currentQuestion.correct;
-    
-            if (selectedAnswerButton.innerText === correctAnswer) {
-                score++;
-                document.getElementById("score").textContent = score;
-                showAnswerPopup(true);
-            } else {
-                showAnswerPopup(false);
-            }
-    
-            nextQuestionButton.style.display = "block";
-            if (currentQuestionIndex === questions[currentLevel].length - 1) {
-                nextQuestionButton.textContent = "Results";
-            } else {
-                nextQuestionButton.textContent = "Next";
-            }
+          button.style.backgroundColor = "#f44336"; // Red for wrong answers
+          button.style.color = "white";
         }
-    });
-    
-    function showErrorPopup() {
-        errorPopup.innerText = "Please select an answer first.";
-        errorPopup.style.display = "block";
-        setTimeout(() => {
-            errorPopup.style.display = "none";
-        }, 600); // auto-hide after 0.5 seconds
-    }
-    
+      });
 
-    
-    nextQuestionButton.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-                clickSound.play();
-        
+      // Show the popup that time's up
+      popupMessage.textContent = "Time's up!";
+      popup.style.display = "block"; // Show the popup
 
-        
-        // hide popup
-        popup.style.display = "none";
-    
-        // load next question
-        currentQuestionIndex++;
-    
-        if (currentQuestionIndex < questions[currentLevel].length) {
-            loadQuestion();
-        } else {
-            showCertificate(score); // Show certificate after all questions
-        }
-    });
-
-   // Get elements
-
-   
-
-
-    function showGameOverPopup() {
-        
-       
-        setTimeout(() => {
-            // Get the current question
-            const currentQuestion = questions[currentLevel][currentQuestionIndex];
-            const correctAnswer = currentQuestion.correct;
-    
-            // Highlight the correct answer and wrong answers
-            document.querySelectorAll(".quiz-box").forEach(button => {
-                button.disabled = true;  // Disable all answer buttons
-                if (button.innerText === correctAnswer) {
-                    button.style.backgroundColor = "#4CAF50"; // Green for correct
-                    button.style.color = "white";
-                } else {
-                    button.style.backgroundColor = "#f44336"; // Red for wrong answers
-                    button.style.color = "white";
-                }
-            });
-            
-    
-            // Show the popup that time's up
-            popupMessage.textContent = "Time's up!";
-            popup.style.display = "block";  // Show the popup
-    
-            nextQuestionButton.textContent = "Next";
-        nextQuestionButton.style.display = "block";  // Ensure the "Next" button is visible
+      nextQuestionButton.textContent = "Next";
+      nextQuestionButton.style.display = "block"; // Ensure the "Next" button is visible
     }, 500);
-}
-    
+  }
 
-   // Show the certificate pop-up with a smooth fade-in effect
-// Show the certificate pop-up with a smooth fade-in effect
-// Show the certificate pop-up with a smooth fade-in effect
-function showCertificate(score) {
+  // Show the certificate pop-up with a smooth fade-in effect
+  // Show the certificate pop-up with a smooth fade-in effect
+  // Show the certificate pop-up with a smooth fade-in effect
+  function showCertificate(score) {
     clearInterval(timer);
     certificatePopup.classList.add("show");
     overlayy.style.display = "block";
-    
+
     certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`;
+  }
 
-
-
-    
-   
-}
-
-// Close the certificate pop-up when the close button is clicked
-document.getElementById("play-again-btn").addEventListener("click", () => {
+  // Close the certificate pop-up when the close button is clicked
+  document.getElementById("play-again-btn").addEventListener("click", () => {
     clickSound.currentTime = 0;
-                clickSound.play();
+    clickSound.play();
 
     // Reset the quiz state
     resetQuiz();
@@ -466,75 +540,52 @@ document.getElementById("play-again-btn").addEventListener("click", () => {
     overlayy.style.display = "none";
 
     // Show the start quiz section (home page) only, and hide other sections
-    startQuizSection.style.display = "block";  // Home page section visible
+    startQuizSection.style.display = "block"; // Home page section visible
     difficultySelection.style.display = "none"; // Hide difficulty selection (no need for it)
-    quizArea.style.display = "none";            // Hide quiz area if you want to reset everything
+    quizArea.style.display = "none"; // Hide quiz area if you want to reset everything
 
     // Reset the progress table (question count, score, and timer)
-    document.getElementById("question-number").textContent = "0";  // Start from question 1
-    document.getElementById("score").textContent = "0";           // Reset score to 0
-    timerElement.textContent = formatTime(countdownTime); 
-            // Reset timer to the starting time
-
-
+    document.getElementById("question-number").textContent = "0"; // Start from question 1
+    document.getElementById("score").textContent = "0"; // Reset score to 0
+    timerElement.textContent = formatTime(countdownTime);
+    // Reset timer to the starting time
 
     // Optionally reset any other UI elements that need resetting
     // (e.g., clearing any previous content or selection)
-});
+  });
 
-function showAnswerPopup(isCorrect) {
+  function showAnswerPopup(isCorrect) {
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
 
     const answerButtons = document.querySelectorAll(".quiz-box");
 
-    answerButtons.forEach(button => {
-        button.disabled = true;
+    answerButtons.forEach((button) => {
+      button.disabled = true;
 
-        if (button.innerText === correctAnswer) {
-            button.style.backgroundColor = "#4CAF50";
-            button.style.color = "white";
-        }
+      if (button.innerText === correctAnswer) {
+        button.style.backgroundColor = "#4CAF50";
+        button.style.color = "white";
+      }
     });
 
     if (!isCorrect && selectedAnswerButton) {
-        selectedAnswerButton.style.backgroundColor = "#f44336";
-        selectedAnswerButton.style.color = "white";
+      selectedAnswerButton.style.backgroundColor = "#f44336";
+      selectedAnswerButton.style.color = "white";
     }
-   
-   
-    
-    
-  
 
     // ✅ Play sound effect
     const correctSound = document.getElementById("correct-sound");
     const wrongSound = document.getElementById("wrong-sound");
-   
-    
 
     if (isCorrect) {
-        correctSound.play();
-        popupMessage.textContent = "Correct!";
+      correctSound.play();
+      popupMessage.textContent = "Correct!";
     } else {
-        wrongSound.play();
-        popupMessage.textContent = "Wrong!";
+      wrongSound.play();
+      popupMessage.textContent = "Wrong!";
     }
 
     popup.style.display = "block";
-}
-
-
-
-
+  }
 });
-
-   
-
-
-
-  
-
-
-
-
