@@ -351,6 +351,35 @@ border: 2px solid #B8860B; /* Dark honey border */
             
             }
 
+
+            /* Bee wings animation for the popup */ 
+
+@-webkit-keyframes fly-wings { 
+
+    0% { 
+    
+   
+    
+    transform: rotate(0deg); 
+    
+    } 
+    
+    50% { 
+    
+     
+    
+    transform: rotate(20deg); 
+    
+    } 
+    
+    100% { 
+    
+    
+    
+    transform: rotate(0deg); 
+    
+    } 
+}
          
     
      
