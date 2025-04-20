@@ -25,6 +25,31 @@ const certificatePopup = document.getElementById("certificate-popup");
 const certificateMessage = document.getElementById("certificate-message"); 
 
 const clickSound = new Audio("assets/audio/click-234708.mp3");   
+let currentQuestionIndex = 0; 
+
+let currentLevel = 'easy'; 
+
+let score = 0; 
+
+let countdownTime = 30; 
+
+let timer; 
+
+let usedFiftyFiftyForLevel = false; 
+
+let selectedAnswerButton = null; 
+
+startQuizSection.style.display = "block"; 
+
+quizArea.style.display = "none"; 
+
+popup.style.display = "none"; 
+
+errorPopup.style.display = "none"; 
+
+difficultySelection.style.display = "none"; 
+
+instructionOverlay.style.display = "none"; 
   
   const questions = { 
 
