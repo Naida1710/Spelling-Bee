@@ -240,7 +240,7 @@ td {
         
         display: block; /* Ensures buttons stay in block format */ 
         
-        text-align: center; /* Centers text inside button */ 
+        text-align: center; 
         
         border-radius: 20px; 
         
@@ -256,10 +256,101 @@ td {
         
        
         
-        transform: scale(1.1); /* Zooms in by 10% */ 
+        transform: scale(1.1); 
         
         } 
+
+        #homeButton { 
+
+            display: block !important; 
+            
+            z-index: 1000; 
+            
+            position: absolute; 
+            
+            top: 15px; 
+            
+            left: 20px; 
+            
+            background: none; 
+            
+            border: none; 
+            
+            font-size: 32px;
+            
+            color: #333; 
+            
+            cursor: pointer; 
+            
+            } 
+            
+             
+            
+            #homeButton:hover { 
+            
+            color: #555; 
+            
+            transform: scale(1.1); 
+            
+            } 
         
+
+            #popup { 
+
+                display: none; 
+                
+                position: fixed; 
+                
+                top: 30%; 
+                
+                left: 50%; 
+                
+               
+                
+                transform: translate(-50%, -50%); 
+                
+                width: 300px; 
+                
+                height: 200px; 
+                
+                background: -o-linear-gradient(45deg, #F9A602, #3E2A47); 
+                
+                background: linear-gradient(45deg, #F9A602, #3E2A47); 
+                color: black; 
+
+border-radius: 20px; 
+
+z-index: 9999; 
+
+padding: 40px; 
+
+text-align: center; 
+
+
+
+box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); 
+
+font-size: 20px; 
+
+font-family: 'Comic Sans MS', 'Trebuchet MS', cursive; 
+
+ 
+
+
+ 
+
+animation: popup-fade 0.5s ease-out, popup-scale 0.3s ease-in-out; 
+
+
+
+transition: transform 0.2s ease-in-out; 
+
+
+
+border: 2px solid #B8860B; /* Dark honey border */ 
+            
+            }
+
          
     
      
