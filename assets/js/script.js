@@ -219,3 +219,27 @@ function startTimer() {
     }, 1000); 
     
     } 
+
+    function showAnswerPopup(isCorrect) { 
+
+        clearInterval(timer); //  
+        
+        const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+        
+        const correctAnswer = currentQuestion.correct; 
+        
+        const answerButtons = document.querySelectorAll(".quiz-box"); 
+        
+        answerButtons.forEach(button => { 
+        
+        button.disabled = true; 
+        
+        if (button.innerText === correctAnswer) { 
+        
+        button.style.backgroundColor = "#4CAF50"; // Green 
+        
+        button.style.color = "white"; 
+        
+        } 
+        
+        });
