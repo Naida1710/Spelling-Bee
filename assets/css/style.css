@@ -58,6 +58,94 @@ td {
     box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7); 
     } 
 
+    .game-area { 
+
+        position: relative; 
+        
+        background-color: #ffff99; 
+        
+        box-sizing: border-box; 
+        
+        border: 2px solid #B8860B; /* Dark honey border */ 
+        
+        border-radius: 50px; 
+        
+        width: 80%; 
+        
+        height: 55vh; 
+        
+        max-height: 550px; 
+        
+        max-width: 830px; 
+        
+        margin-left: auto; 
+        
+        margin-right: auto; 
+        
+        padding: 1%; 
+        
+        
+        
+        box-shadow: 0px 0px 20px rgba(184, 134, 11, 2.0); 
+        
+        } 
+
+        .quiz-container { 
+
+          
+            
+            display: flex; 
+            
+            
+            
+            align-items: center; /* Centers items vertically */ 
+            
+           
+            
+            justify-content: center; /* Centers everything */ 
+            
+            gap: 40px; /* More space between quiz and next button */ 
+            
+            max-width: 600px; /* Ensures proper spacing */ 
+            
+            margin: auto; 
+            
+            } 
+
+             
+
+#difficulty-selection { 
+
+   
+    
+    display: flex; 
+    
+    
+    
+    flex-direction: column; /* Stack buttons vertically */ 
+    
+   
+    
+    align-items: center; /* Center buttons horizontally */ 
+    
+   
+    
+    justify-content: center; /* Center buttons vertically */ 
+    
+    height: 100vh; /* Make the container take up the full vertical height of the screen */ 
+    
+    margin: 60px auto; /* Horizontally center the container */ 
+    
+    } 
+    
+     
+    
+    #difficulty-selection > h2 { 
+    
+    margin-bottom: 40px; 
+    
+    } 
+
 footer { 
     z-index: 1; 
     position: relative; 
