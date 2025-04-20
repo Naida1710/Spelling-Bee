@@ -90,6 +90,7 @@
           <button id="startQuiz">Start Quiz</button>
         </div>
 
+        <!-- Difficulty selection screen with buttons for Easy, Medium, and Hard levels -->
         <div class="quiz-container">
           <div id="difficulty-selection">
             <h2>Choose your difficulty level to begin!</h2>
@@ -101,17 +102,21 @@
           </div>
         </div>
 
+        <!-- Quiz area containing the 50/50 button on the start screen -->
         <div class="quiz-area">
           <div id="start-screen">
             <button id="fiftyFiftyButton" class="btn">50/50</button>
           </div>
 
+          <!-- Quiz content displaying the current question and answer options -->
           <div class="quiz-container">
             <div id="quiz-content">
               <h2 id="quiz-question-text">Choose the correct spelling:</h2>
               <div class="quiz-options" id="quiz-options"></div>
             </div>
           </div>
+
+          <!-- Submit button for answering the question and error popup  -->
           <div class="submit-container">
             <button id="submitAnswer" class="btn btn--gray">
               Submit Answer
@@ -119,10 +124,11 @@
             <div id="error-popup" class="error-popup">
               Please select an answer first!
             </div>
+
+            <!-- Certificate and play again button/end of quiz-->
             <div id="certificate-popup">
               <div id="certificate-message"></div>
-
-              <button id="play-again-btn">Play again</button>
+                 <button id="play-again-btn">Play again</button>
             </div>
             <div class="overlayy"></div>
           </div>
@@ -130,8 +136,7 @@
       </div>
 
       <!-- Sound toggle icon -->
-
-      <audio
+     <audio
         id="click-sound"
         src="assets/audio/click-234708.mp3"
         preload="auto"
@@ -146,6 +151,8 @@
         src="assets/audio/wrong-buzzer-6268.mp3"
         preload="auto"
       ></audio>
+
+      <!-- Game instructions with the button -->
 
       <div id="instructionOverlay" class="instructionoverlay">
         <div class="instruction-box">
