@@ -18,5 +18,8 @@ const timerElement = document.getElementById("timer");
 const fiftyFiftyButton = document.getElementById("fiftyFiftyButton"); 
 const errorPopup = document.getElementById("error-popup"); 
 
-const instructionOverlay = document.getElementById("instructionOverlay");   
+const instructionOverlay = document.getElementById("instructionOverlay");  
+const startQuizNow = document.getElementById("startQuizNow"); 
+
+const certificatePopup = document.getElementById("certificate-popup");  
   });
