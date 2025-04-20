@@ -137,6 +137,64 @@ td {
     margin: 60px auto; /* Horizontally center the container */ 
     
     } 
+
+    #difficulty-selection > h2 { 
+
+        margin-bottom: 40px; 
+        
+        } 
+
+    .difficulty-btn { 
+
+        width: 200px; /* Button width */ 
+        
+        height: 50px; /* Button height */ 
+        
+        font-size: 18px; 
+        
+        border: 2px solid #B8860B; /* Dark honey border */ 
+        
+        background-color: #FFD700; /* Honey-like golden color */ 
+        
+        
+        
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3); 
+        
+        cursor: pointer; 
+        
+       
+        
+        transition: 0.3s; 
+        
+        font-family: 'Comic Sans MS', 'Trebuchet MS', cursive; 
+        
+         
+        
+        margin: 20px 110px; /* Space between buttons */ 
+        
+        display: block; /* Ensures buttons stay in block format */ 
+        
+        text-align: center; /* Centers text inside button */ 
+        
+        border-radius: 20px; 
+        
+         
+        
+        } 
+        
+         
+        
+        .difficulty-btn:hover { 
+        
+        background-color: #e6b800; 
+        
+       
+        
+        transform: scale(1.1); /* Zooms in by 10% */ 
+        
+        } 
+        
+         
     
      
     
