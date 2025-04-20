@@ -124,3 +124,32 @@ instructionOverlay.style.display = "flex";
     }); 
 
 }); 
+startQuizNow.addEventListener("click", () => { 
+
+    clickSound.currentTime = 0; 
+    
+    clickSound.play(); 
+    
+     
+    
+    instructionOverlay.style.display = "none"; 
+    
+    loadQuestion(); 
+    
+    }); 
+    
+     
+    
+    startQuizButton.addEventListener("click", () => { 
+    
+    clickSound.currentTime = 0; 
+    
+    clickSound.play(); 
+    
+     
+    
+    startQuizSection.style.display = "none"; 
+    
+    difficultySelection.style.display = "block"; 
+    
+    }); 
