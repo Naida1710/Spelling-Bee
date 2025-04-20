@@ -535,3 +535,46 @@ submitButton.addEventListener("click", () => {
     } 
     
     }); 
+    function showErrorPopup() { 
+
+        errorPopup.innerText = "Please select an answer first."; 
+        
+        errorPopup.style.display = "block"; 
+        
+        setTimeout(() => { 
+        
+        errorPopup.style.display = "none"; 
+        
+        }, 600); // auto-hide after 0.5 seconds 
+        
+        } 
+        
+         
+        
+        nextQuestionButton.addEventListener("click", () => { 
+        
+        clickSound.currentTime = 0; 
+        
+        clickSound.play(); 
+        
+         
+        
+        // hide popup 
+        
+        popup.style.display = "none"; 
+        
+        // load next question 
+        
+        currentQuestionIndex++; 
+        
+        if (currentQuestionIndex < questions[currentLevel].length) { 
+        
+        loadQuestion(); 
+        
+        } else { 
+        
+        showCertificate(score); // Show certificate after all questions 
+        
+        } 
+        
+        }); 
