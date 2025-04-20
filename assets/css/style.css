@@ -58,6 +58,72 @@ td {
     box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7); 
     } 
 
+    #timer { 
+
+        color: red; 
+        
+        font-weight: bold; 
+        
+        font-size: 30px; 
+        
+        } 
+        
+         
+        
+         
+        
+         
+        
+        #time-left-text { 
+        
+        color: #000; 
+        
+        } 
+        
+         
+        
+         
+        
+         
+        
+         
+        
+         
+        
+         
+        
+         
+        
+        #score { 
+        
+        color: green; 
+        
+        font-weight: bold; 
+        
+        font-size: 30px; 
+        
+        } 
+        
+         
+        
+        .scores { 
+        
+        color: #000; 
+        
+        } 
+        
+         
+        
+        #question-number { 
+        
+        color: blue; 
+        
+        font-weight: bold; 
+        
+        font-size: 30px; 
+        
+        } 
+
     .game-area { 
 
         position: relative; 
