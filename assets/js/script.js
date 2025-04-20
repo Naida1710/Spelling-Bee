@@ -153,3 +153,33 @@ startQuizNow.addEventListener("click", () => {
     difficultySelection.style.display = "block"; 
     
     }); 
+    homeButton.addEventListener("click", () => { 
+
+        clickSound.currentTime = 0; 
+        
+        clickSound.play(); 
+        
+        resetQuiz(); 
+        
+        resetLevel(); 
+        startQuizSection.style.display = "block"; 
+
+difficultySelection.style.display = "none"; 
+
+quizArea.style.display = "none"; 
+
+popup.style.display = "none"; 
+
+errorPopup.style.display = "none"; 
+
+// Clear any selected answers or quiz text 
+
+quizOptionsContainer.innerHTML = ""; 
+
+document.getElementById("quiz-question-text").textContent = ""; 
+
+document.getElementById("question-number").textContent = "0"; 
+
+document.getElementById("score").textContent = "0"; 
+
+}); 
