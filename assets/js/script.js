@@ -484,3 +484,54 @@ timerElement.textContent = formatTime(countdownTime);
 startTimer(); 
 
 } 
+ 
+
+submitButton.addEventListener("click", () => { 
+
+    errorPopup.classList.add('show'); 
+    
+     
+    
+    const selectedAnswerButton = document.querySelector(".quiz-box.selected"); 
+    
+    if (!selectedAnswerButton) { 
+    
+    showErrorPopup(); 
+    
+    } else { 
+    
+    clearInterval(timer); // Move here: only stop the timer if an answer is selected 
+    
+    const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+    
+    const correctAnswer = currentQuestion.correct; 
+    
+    if (selectedAnswerButton.innerText === correctAnswer) { 
+    
+    score++; 
+    
+    document.getElementById("score").textContent = score; 
+    
+    showAnswerPopup(true); 
+    
+    } else { 
+    
+    showAnswerPopup(false); 
+    
+    } 
+    
+    nextQuestionButton.style.display = "block"; 
+    
+    if (currentQuestionIndex === questions[currentLevel].length - 1) { 
+    
+    nextQuestionButton.textContent = "Results"; 
+    
+    } else { 
+    
+    nextQuestionButton.textContent = "Next"; 
+    
+    } 
+    
+    } 
+    
+    }); 
