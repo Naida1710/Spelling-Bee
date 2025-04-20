@@ -1,0 +1,18 @@
+ 
+
+/* Global style */ 
+
+html, body { 
+    height: 100%; 
+    margin: 0; 
+    padding: 0; 
+    } 
+
+table { 
+    width: 200px; 
+    background-color: rgba(184, 134, 11, 0.9); 
+    text-align: center; 
+    font-size: 18px; 
+    border-radius: 30px; /* Add border radius to table */ 
+    border: 2px solid #B8860B; /* Dark honey border */ 
+    } 
