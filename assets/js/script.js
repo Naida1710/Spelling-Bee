@@ -393,6 +393,39 @@ function getRandomIncorrectAnswers(incorrectAnswers) {
             clearInterval(timer); 
             
             countdownTime = 30; 
+
+
+             
+
+function resetLevel() { 
+
+    usedFiftyFiftyForLevel = false; 
+    
+    resetFiftyFiftyButton(); 
+    
+    } 
+    
+     
+    
+    function resetFiftyFiftyButton() { 
+    
+    fiftyFiftyButton.disabled = usedFiftyFiftyForLevel; 
+    
+    fiftyFiftyButton.textContent = usedFiftyFiftyForLevel ? "Used" : "50/50"; 
+    
+    } 
+    
+     
+    
+    function enableFiftyFiftyButton() { 
+    
+    if (!usedFiftyFiftyForLevel) { 
+    
+    fiftyFiftyButton.disabled = false; 
+    
+    } 
+    
+    } 
        
         
 
