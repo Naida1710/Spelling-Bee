@@ -107,9 +107,20 @@ const clickSound = new Audio("assets/audio/click-234708.mp3");
     difficultyButtons.forEach(button => { 
 
         button.addEventListener("click", () => { 
-        
+            clickSound.currentTime = 0; 
+
+            clickSound.play(); 
      
         currentLevel = button.dataset.level; 
+        resetQuiz(); 
+
+resetLevel(); 
+
+difficultySelection.style.display = "none"; 
+
+quizArea.style.display = "block"; 
+
+instructionOverlay.style.display = "flex"; 
     }); 
 
 }); 
