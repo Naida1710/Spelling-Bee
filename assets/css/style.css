@@ -1,10 +1,5 @@
  
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v8.4.14,
-* Autoprefixer: v10.4.7
-* Browsers: last 4 version
-*/
+
 
 /* --------- Global style */
 html, body {
@@ -15,14 +10,9 @@ html, body {
 body {
     background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
    
-    display: -webkit-box;
-   
-    display: -ms-flexbox;
    
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
+   
             flex-direction: column;
     min-height: 100vh;
     background-size: cover; /* Covers the whole screen */
@@ -34,8 +24,7 @@ body {
     
 }
 main {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
+   
             flex: 1;
   }
 
@@ -54,11 +43,9 @@ main {
 
 /* --------- Game layout */
 .game {
-    display: -webkit-box;
-    display: -ms-flexbox;
+   
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+
             justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
@@ -86,18 +73,18 @@ td {
 }
 
 .blue {
-    -webkit-box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.5);
+    
             box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.5);
     
 }
 
 .green {
-    -webkit-box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7);
+   
             box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7);
 }
 
 .red {
-    -webkit-box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7);
+    
             box-shadow: 0px 0px 20px rgba(184, 134, 11, 0.7);
 }
 
@@ -106,7 +93,7 @@ td {
     background-color: #ffff99;
     
     
-    -webkit-box-sizing: border-box;
+   
     
     
             box-sizing: border-box;
@@ -120,7 +107,7 @@ td {
     margin-right: auto;
     padding: 1%;
     
-    -webkit-box-shadow: 0px 0px 20px rgba(184, 134, 11, 2.0);
+    
     
             box-shadow: 0px 0px 20px rgba(184, 134, 11, 2.0);
     
@@ -166,8 +153,7 @@ td {
 .quiz-area {
     text-align: center;
     margin-top: 20px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
+    
             flex: 1;
     display: none;
 }
@@ -178,13 +164,12 @@ td {
 
 
 .quiz-options {
-    display: -ms-grid;
+    
     display: grid;
-    -ms-grid-columns: 1fr 20px 1fr;
+    
     grid-template-columns: repeat(2, 1fr); /* Two columns */
     gap: 20px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+   
             justify-content: center;
     max-width: 400px; /* Adjust width */
     margin-left: -30px;
@@ -204,21 +189,17 @@ td {
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
     border: 2px solid #B8860B; /* Dark honey border */
     background-color: #FFD700; /* Honey-like golden color */
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     color: black;
     cursor: pointer;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
+    
     transition: 0.3s;
-    display: -webkit-box;
-    display: -ms-flexbox;
+   
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
+    
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+    
             justify-content: center;
     
     padding: 0;
@@ -235,14 +216,11 @@ td {
 }
 
 .quiz-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
+   
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
+    
             align-items: center; /* Centers items vertically */
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+   
             justify-content: center; /* Centers everything */
     gap: 40px; /* More space between quiz and next button */
     max-width: 600px; /* Ensures proper spacing */
@@ -283,15 +261,15 @@ td {
    cursor: pointer;
   padding: 20px 20px;
     margin-right: -15px;
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     font-size: 18px;
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
-    -webkit-transition: -webkit-transform 0.2s ease;
-    transition: -webkit-transform 0.2s ease;
-    -o-transition: transform 0.2s ease;
+    
+  
+   
     transition: transform 0.2s ease;
-    transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  
     z-index: 2;
    
 }
@@ -301,58 +279,37 @@ td {
 {
     background-color: black;
     
-    -webkit-animation: bounce 0.5s ease-out;
+   
     
             animation: bounce 0.5s ease-out;
 }
 
 
-@-webkit-keyframes bounce {
-    0% {
-        -webkit-transform: translateY(0);
-                transform: translateY(0);
-    }
-    30% {
-        -webkit-transform: translateY(-10px);
-                transform: translateY(-10px);
-    }
-    50% {
-        -webkit-transform: translateY(0);
-                transform: translateY(0);
-    }
-    70% {
-        -webkit-transform: translateY(-5px);
-                transform: translateY(-5px);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-                transform: translateY(0);
-    }
-}
-
-
 @keyframes bounce {
     0% {
-        -webkit-transform: translateY(0);
+        
                 transform: translateY(0);
     }
     30% {
-        -webkit-transform: translateY(-10px);
+      
                 transform: translateY(-10px);
     }
     50% {
-        -webkit-transform: translateY(0);
+        
                 transform: translateY(0);
     }
     70% {
-        -webkit-transform: translateY(-5px);
+        
                 transform: translateY(-5px);
     }
     100% {
-        -webkit-transform: translateY(0);
+        
                 transform: translateY(0);
     }
 }
+
+
+
 .quiz-box.selected {
     background-color: #CC5500;
 
@@ -366,18 +323,14 @@ td {
 
 
 #difficulty-selection {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
+   
+    display: none;
+  
+        
             flex-direction: column; /* Stack buttons vertically */
-    -webkit-box-align: center;
-        -ms-flex-align: center;
+    
             align-items: center; /* Center buttons horizontally */
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+    
             justify-content: center; /* Center buttons vertically */
     height: 100vh; /* Make the container take up the full vertical height of the screen */
     margin: 60px auto; /* Horizontally center the container */
@@ -394,11 +347,10 @@ td {
     font-size: 18px;
     border: 2px solid #B8860B; /* Dark honey border */
     background-color: #FFD700; /* Honey-like golden color */
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
+    
     transition: 0.3s;
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
 
@@ -412,8 +364,7 @@ td {
 
 .difficulty-btn:hover {
     background-color: #e6b800;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+    
             transform: scale(1.1); /* Zooms in by 10% */
 }
 
@@ -431,13 +382,11 @@ td {
     cursor: pointer;
     border: 2px solid #B8860B; /* Dark honey border */
     background-color: #FFD700; /* Honey-like golden color */
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
 
-    -webkit-transform: scale(1.1);
-
-        -ms-transform: scale(1.1);
+   
 
             transform: scale(1.1); /* Zooms in by 10% */
     border-radius: 20px;
@@ -445,8 +394,7 @@ td {
 
 #startQuiz:hover {
     background-color: #e6b800;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+   
             transform: scale(1.1); /* Zooms in by 10% */
    
 }
@@ -467,8 +415,7 @@ td {
 
 #homeButton:hover {
     color: #555; /* Slightly darker on hover */
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+   
             transform: scale(1.1); /* Zooms in by 10% */
 }
 
@@ -477,8 +424,7 @@ td {
     position: fixed;
     top: 30%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+    
             transform: translate(-50%, -50%);
     width: 300px;
     height: 200px;
@@ -497,49 +443,34 @@ td {
     z-index: 9999;
     padding: 40px;
     text-align: center;
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     font-size: 20px;
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
 
-    -webkit-animation: popup-fade 0.5s ease-out, popup-scale 0.3s ease-in-out;
+
 
             animation: popup-fade 0.5s ease-out, popup-scale 0.3s ease-in-out;
-    -webkit-transition: -webkit-transform 0.2s ease-in-out;
-    transition: -webkit-transform 0.2s ease-in-out;
-    -o-transition: transform 0.2s ease-in-out;
+    
+  
     transition: transform 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+   
     border: 2px solid #B8860B; /* Dark honey border */
   
 }
 
 /* Bee wings animation for the popup */
-@-webkit-keyframes fly-wings {
-    0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-    }
-    50% {
-        -webkit-transform: rotate(20deg);
-                transform: rotate(20deg);
-    }
-    100% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-    }
-}
 @keyframes fly-wings {
     0% {
-        -webkit-transform: rotate(0deg);
+       
                 transform: rotate(0deg);
     }
     50% {
-        -webkit-transform: rotate(20deg);
+      
                 transform: rotate(20deg);
     }
     100% {
-        -webkit-transform: rotate(0deg);
+        
                 transform: rotate(0deg);
     }
 }
@@ -549,14 +480,13 @@ td {
     position: absolute;
     top: -30px;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
+    
             transform: translateX(-50%);
     width: 50px;
     height: 50px;
     background-color: yellow;
     border-radius: 50%;
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     /* No animation on the bee body */
     -webkit-animation: none;
@@ -573,23 +503,21 @@ td {
     height: 15px;
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
-    -webkit-box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    -webkit-animation: fly-wings 1s ease-in-out infinite;
+   
             animation: fly-wings 1s ease-in-out infinite; /* Wing animation */
 }
 
 .bee-shape::before {
     left: -20px;
-    -webkit-transform: rotate(-30deg);
-        -ms-transform: rotate(-30deg);
+   
             transform: rotate(-30deg);
 }
 
 .bee-shape::after {
     right: -20px;
-    -webkit-transform: rotate(30deg);
-        -ms-transform: rotate(30deg);
+  
             transform: rotate(30deg);
 }
 
@@ -601,8 +529,7 @@ td {
 display: inline;
     left: 50%;
    top: 50%;
-   -webkit-transform: translate(-50%, -50%);
-       -ms-transform: translate(-50%, -50%);
+   
            transform: translate(-50%, -50%);
 
 
@@ -629,16 +556,16 @@ display: inline;
     color: #ffcc00;
     border-radius: 20px;
     font-size: 22px;
-    -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+
             box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
     padding: 10px 20px;
     border-radius: 10px;
     cursor: pointer;
-    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+   
     transition: -webkit-transform 0.2s ease-in-out;
-    -o-transition: transform 0.2s ease-in-out;
+   
     transition: transform 0.2s ease-in-out;
-    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
 
   
@@ -647,8 +574,7 @@ display: inline;
 /* Hover effect without shifting */
 #nextButton:hover {
     background-color: #4F5F6E ;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+   
             transform: scale(1.1); /* Zooms in by 10% */
 }
 
@@ -659,28 +585,19 @@ display: inline;
 
 
 #start-screen {
-    display: -webkit-box;
-    display: -ms-flexbox;
+  
     display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
+   
             align-items: flex-start;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+   
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
+    
             align-items: center;
     gap: 20px;
     margin-top: 20px; /* Reduce this value to move it higher */
     position: relative;
     top: -20px; /* Try negative values to pull it upward */
 }
-
-/* Hint Button */
-
-
-
 
 /* 50/50 Button */
 #fiftyFiftyButton {
@@ -691,24 +608,22 @@ display: inline;
     border: 2px solid #28a745;
     border-radius: 20px;
     cursor: pointer;
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: -webkit-transform 0.3s;
-    -o-transition: transform 0.3s;
+  
+  
+   
     transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s;
+   
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
 
 }
 
 #fiftyFiftyButton:hover {
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+   
             transform: scale(1.1);
 }
 #fiftyFiftyButton:disabled {
     pointer-events: none;  /* Disable pointer events so it can't be hovered */
-    -webkit-transform: none;
-        -ms-transform: none;
+   
             transform: none;  /* Remove any zoom-in or transform effect */
     cursor: not-allowed;  /* Change cursor to indicate it's disabled */
     background-color: #555;
@@ -722,8 +637,7 @@ display: inline;
     position: absolute;
     top: -30px;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
+ 
             transform: translateX(-50%);
     background-color: #ffffff;
     color: #d32f2f;
@@ -733,15 +647,13 @@ display: inline;
     z-index: 100;
     display: none;
     border-radius: 25px;
-    -webkit-box-shadow:
-      0 4px 8px rgba(0, 0, 0, 0.1),
-      inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+   
+     
             box-shadow:
       0 4px 8px rgba(0, 0, 0, 0.1),
       inset 0 -1px 2px rgba(0, 0, 0, 0.05);
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease;
-    -o-transition: opacity 0.3s ease;
+   
     transition: opacity 0.3s ease;
     border: 1px solid #eee;
     font-family: 'Comic Sans MS', 'Trebuchet MS', cursive;
@@ -758,14 +670,13 @@ display: inline;
     position: absolute;
     bottom: -6px;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
+    
             transform: translateX(-50%);
     width: 12px;
     height: 6px;
     background-color: white;
     border-radius: 50%;
-    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
   
@@ -779,11 +690,9 @@ display: inline;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* semi-transparent black */
     display: none;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
+   
             justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
+    
             align-items: center;
     z-index: 1000;
 }
@@ -794,7 +703,7 @@ display: inline;
     border-radius: 15px;
     max-width: 500px;
     text-align: center;
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -851,22 +760,20 @@ display: inline;
     position: fixed;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
+    
             transform: translate(-50%, -50%);
     width: 80%;
     max-width: 500px;
     background-color: #fff;
     padding: 20px;
     border-radius: 15px;
-    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+   
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
     z-index: 10000;
     display: none; /* Initially hidden */
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease;
-    -o-transition: opacity 0.3s ease;
+   
     transition: opacity 0.3s ease;
 }
 
@@ -899,16 +806,14 @@ display: inline;
 }
 #play-again-btn:hover {
     background-color: greenyellow;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+   
             transform: scale(1.1); /* Zooms in by 10% */
 }
 
 
 #close-certificate-btn:hover {
     background-color: greenyellow;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
+  
             transform: scale(1.1); /* Zooms in by 10% */
 }
 footer {
@@ -927,20 +832,15 @@ footer p {
 /* Responsive styles for screens up to 768px */
 @media all and (max-width: 768px) {
     .game {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
+     
               flex-direction: column;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
+      
               align-items: center;
       gap: 10px;
     }
   
     .quiz-container {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
+     
               flex-direction: column;
       gap: 20px;
     }
@@ -952,7 +852,7 @@ footer p {
     }
   
     .quiz-options {
-      -ms-grid-columns: 1fr;
+     
       grid-template-columns: 1fr;
       margin-left: 0;
       max-width: 100%;
@@ -977,8 +877,7 @@ footer p {
     
       #nextButton {
         left: 50%;
-        -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
+       
                 transform: translateX(-50%);
         margin-top: 15px;
       }
@@ -1040,6 +939,18 @@ footer p {
       padding: 10px;
     }
   }
+  @media (max-width: 600px) {
+    .quiz-box {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    .game-area {
+      width: 95%;
+      height: auto;
+    }
+  }
+  
 
 
 

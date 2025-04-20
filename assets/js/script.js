@@ -99,27 +99,20 @@ document.addEventListener("DOMContentLoaded", () => {
             instructionOverlay.style.display = "flex";
         });
     });
-
-    startQuizNow.addEventListener("click", () => {
-       
-        clickSound.currentTime = 0;
+    
+        startQuizButton.addEventListener("click", (event) => {
+             
+            startQuizButton.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent form submission
+                clickSound.currentTime = 0;
                 clickSound.play();
-        
-        
+                startQuizSection.style.display = "none";
+                difficultySelection.style.display = "block";
+            });
+        });
+   
 
-        
-        instructionOverlay.style.display = "none";
-        loadQuestion();
-    });
-
-    startQuizButton.addEventListener("click", () => {
-        clickSound.currentTime = 0;
-                clickSound.play();
-        
-
-        startQuizSection.style.display = "none";
-        difficultySelection.style.display = "block";
-    });
+   
 
     homeButton.addEventListener("click", () => {
         clickSound.currentTime = 0;
