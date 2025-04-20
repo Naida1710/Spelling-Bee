@@ -1030,3 +1030,47 @@ footer p {
         display: inline-block; 
         
         } 
+
+        @keyframes bounce { 
+
+            0% { 
+            
+            -webkit-transform: translateY(0); 
+            
+            transform: translateY(0); 
+            
+            } 
+            
+            30% { 
+            
+            -webkit-transform: translateY(-10px); 
+            
+            transform: translateY(-10px); 
+            
+            } 
+            
+            50% { 
+            
+            -webkit-transform: translateY(0); 
+            
+            transform: translateY(0); 
+            
+            } 
+            
+            70% { 
+            
+            -webkit-transform: translateY(-5px); 
+            
+            transform: translateY(-5px); 
+            
+            } 
+            
+            100% { 
+            
+            -webkit-transform: translateY(0); 
+            
+            transform: translateY(0); 
+            
+            } 
+            
+            } 
