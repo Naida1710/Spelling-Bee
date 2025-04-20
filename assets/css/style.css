@@ -1074,3 +1074,73 @@ footer p {
             } 
             
             } 
+
+            /* The certificate pop-up box */ 
+
+#certificate-popup { 
+
+    position: fixed; 
+    
+    top: 50%; 
+    
+    left: 50%; 
+    
+    
+    
+    transform: translate(-50%, -50%); 
+    
+    width: 80%; 
+    
+    max-width: 500px; 
+    
+    background-color: #fff; 
+    
+    padding: 20px; 
+    
+    border-radius: 15px; 
+    
+     
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    
+    text-align: center; 
+    
+    z-index: 10000; 
+    
+    display: none; /* Initially hidden */ 
+    
+    opacity: 0; 
+    
+   
+    
+    transition: opacity 0.3s ease; 
+    
+    } 
+    
+     
+    
+    /* When the certificate is visible */ 
+    
+    #certificate-popup.show { 
+    
+    display: block; 
+    
+    opacity: 1; 
+    
+    } 
+    
+     
+    
+    /* Certificate message styling */ 
+    
+    #certificate-message { 
+    
+    font-size: 1.5em; 
+    
+    margin-bottom: 20px; 
+    
+    font-weight: bold; 
+    
+    color: #333; 
+    
+    } 
