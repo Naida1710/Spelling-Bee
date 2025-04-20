@@ -1251,3 +1251,27 @@ footer p {
     margin-bottom: 15px; 
     
     } 
+
+     
+
+#startQuizNow { 
+
+    margin-top: 20px; 
+    
+    padding: 10px 20px; 
+    
+    font-size: 16px; 
+    
+    border: none; 
+    
+    background-color: #2e8b57; 
+    
+    color: white; 
+    
+    border-radius: 10px; 
+    
+    cursor: pointer; 
+    
+    } 
+    
+     
