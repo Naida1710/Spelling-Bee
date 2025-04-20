@@ -427,5 +427,10 @@ function resetLevel() {
     
     } 
        
+    function loadQuestion() { 
+
+        const currentQuestions = questions[currentLevel]; 
         
+        const currentQuestion = currentQuestions[currentQuestionIndex]; 
+    }  
 
