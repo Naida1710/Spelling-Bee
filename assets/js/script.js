@@ -368,18 +368,7 @@ function getRandomIncorrectAnswers(incorrectAnswers) {
     } 
     
     return [incorrectAnswers[randomIndex1], incorrectAnswers[randomIndex2]]; 
-    function resetQuiz() { 
-    } 
-
-        score = 0; 
-        
-        currentQuestionIndex = 0; 
-        
-        document.getElementById("score").textContent = score; 
-        
-        clearInterval(timer); 
-        
-        countdownTime = 30; 
+   
         
         timerElement.textContent = formatTime(countdownTime); 
         
@@ -391,6 +380,19 @@ function getRandomIncorrectAnswers(incorrectAnswers) {
         
         } 
         
+
+        function resetQuiz() { 
+        } 
+    
+            score = 0; 
+            
+            currentQuestionIndex = 0; 
+            
+            document.getElementById("score").textContent = score; 
+            
+            clearInterval(timer); 
+            
+            countdownTime = 30; 
        
         
 
