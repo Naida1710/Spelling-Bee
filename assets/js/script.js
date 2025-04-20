@@ -241,6 +241,7 @@ function startTimer() {
         button.style.color = "white"; 
         
         } 
+    });
         // Only mark the selected wrong answer red 
 
 if (!isCorrect && selectedAnswerButton) { 
@@ -258,7 +259,44 @@ if (!isCorrect && selectedAnswerButton) {
     : "Wrong!"; 
     
     popup.style.display = "block"; 
+} 
+
+ 
+
+function highlightCorrectAndWrongAnswers() { 
+
+    const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+    
+    const correctAnswer = currentQuestion.correct; 
+    
+    // Loop through all the answer buttons and highlight them 
+    
+    document.querySelectorAll(".quiz-box").forEach(button => { 
+    
+    button.disabled = true; // Disable all answer buttons 
+    
+    if (button.innerText === correctAnswer) { 
+    
+    // Correct answer: Green background 
+    
+    button.style.backgroundColor = "#4CAF50"; // Green 
+    
+    button.style.color = "white"; // White text 
+    
+    } else { 
+    
+    // Incorrect answer: Red background 
+    
+    button.style.backgroundColor = "#f44336"; // Red 
+    
+    button.style.color = "white"; // White text 
+    
+    } 
+    
+    }); 
+    
+    } 
         
-        });
+       
         
 
