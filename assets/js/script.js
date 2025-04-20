@@ -15,5 +15,8 @@ const popup = document.getElementById("popup");
 const popupMessage = document.getElementById("popup-message"); 
 const nextQuestionButton = document.getElementById("nextButton"); 
 const timerElement = document.getElementById("timer");
-const fiftyFiftyButton = document.getElementById("fiftyFiftyButton");   
+const fiftyFiftyButton = document.getElementById("fiftyFiftyButton"); 
+const errorPopup = document.getElementById("error-popup"); 
+
+const instructionOverlay = document.getElementById("instructionOverlay");   
   });
