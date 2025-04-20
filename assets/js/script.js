@@ -296,6 +296,57 @@ function highlightCorrectAndWrongAnswers() {
     }); 
     
     } 
+
+
+     
+
+fiftyFiftyButton.addEventListener("click", () => { 
+
+    clickSound.currentTime = 0; 
+    
+    clickSound.play(); 
+    
+     
+    
+    if (!usedFiftyFiftyForLevel) { 
+    
+    usedFiftyFiftyForLevel = true; 
+    
+    fiftyFiftyButton.disabled = true; // Disable the 50/50 button after use 
+    
+    fiftyFiftyButton.textContent = "Used"; // Change text to 'Used' 
+    
+    // Get the current question and the correct answer 
+    
+    const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+    
+    const correctAnswer = currentQuestion.correct; 
+    
+    // Get the incorrect answers by filtering out the correct one 
+    
+    const incorrectAnswers = currentQuestion.answers.filter(answer => answer !== correctAnswer); 
+    
+    // Randomly pick two incorrect answers to hide 
+    
+    const [incorrect1, incorrect2] = getRandomIncorrectAnswers(incorrectAnswers); 
+    
+    // Hide the two incorrect answers by setting their visibility to 'hidden' and disabling them 
+    
+    document.querySelectorAll(".quiz-box").forEach(button => { 
+    
+    if (button.innerText === incorrect1 || button.innerText === incorrect2) { 
+    
+    button.style.visibility = "hidden"; 
+    
+    button.disabled = true; // Disable the button so users cannot click it 
+    
+    } 
+    
+    }); 
+    
+    } 
+    
+    }); 
         
        
         
