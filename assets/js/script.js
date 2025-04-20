@@ -104,4 +104,12 @@ const clickSound = new Audio("assets/audio/click-234708.mp3");
     
     }; 
     
+    difficultyButtons.forEach(button => { 
+
+        button.addEventListener("click", () => { 
+        
      
+        currentLevel = button.dataset.level; 
+    }); 
+
+}); 
