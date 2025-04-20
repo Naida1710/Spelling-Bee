@@ -459,3 +459,28 @@ currentQuestion.answers.forEach(answer => {
     quizOptionsContainer.appendChild(button); 
     
     }); 
+     
+
+document.getElementById("question-number").textContent = currentQuestionIndex + 1; 
+
+selectedAnswerButton = null; 
+
+ 
+
+enableFiftyFiftyButton(); {
+
+ 
+
+errorPopup.style.display = "none"; 
+
+popup.style.display = "none"; 
+
+ 
+
+countdownTime = 30; 
+
+timerElement.textContent = formatTime(countdownTime); 
+
+startTimer(); 
+
+} 
