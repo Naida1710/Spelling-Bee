@@ -438,3 +438,24 @@ function resetLevel() {
 
 document.getElementById("quiz-question-text").textContent = "Choose the correct spelling:"; 
 
+currentQuestion.answers.forEach(answer => { 
+
+    const button = document.createElement("button"); 
+    
+    button.classList.add("quiz-box"); 
+    
+    button.innerText = answer; 
+    
+    button.addEventListener("click", () => { 
+    
+    document.querySelectorAll(".quiz-box").forEach(btn => btn.classList.remove("selected")); 
+    
+    button.classList.add("selected"); 
+    
+    selectedAnswerButton = button; 
+    
+    }); 
+    
+    quizOptionsContainer.appendChild(button); 
+    
+    }); 
