@@ -578,3 +578,46 @@ submitButton.addEventListener("click", () => {
         } 
         
         }); 
+         
+
+function showGameOverPopup() { 
+
+    setTimeout(() => { 
+    
+    // Get the current question 
+    
+    const currentQuestion = questions[currentLevel][currentQuestionIndex]; 
+    
+    const correctAnswer = currentQuestion.correct; 
+    
+    // Highlight the correct answer and wrong answers 
+    
+    document.querySelectorAll(".quiz-box").forEach(button => { 
+    
+    button.disabled = true; // Disable all answer buttons 
+    
+    if (button.innerText === correctAnswer) { 
+    
+    button.style.backgroundColor = "#4CAF50"; // Green for correct 
+    
+    button.style.color = "white"; 
+    
+    } else { 
+    
+    button.style.backgroundColor = "#f44336"; // Red for wrong answers 
+    
+    button.style.color = "white"; 
+    
+    } 
+    
+    }); 
+    
+    // Show the popup that time's up 
+    
+    popupMessage.textContent = "Time's up!"; 
+    
+    popup.style.display = "block"; // Show the popup 
+    
+    }, 500); 
+    
+    } 
