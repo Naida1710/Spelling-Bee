@@ -8,6 +8,20 @@ html, body {
     padding: 0; 
     } 
 
+
+/* Heading and logo */ 
+
+.heading { 
+    text-align: center; 
+    font-size: 2.5rem; 
+    } 
+    
+.logo { 
+    height: 50px; 
+    padding-right: 5px; 
+    } 
+
+
 /* Tables style */ 
 
 table { 
