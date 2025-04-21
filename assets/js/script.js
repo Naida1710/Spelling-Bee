@@ -1,3 +1,4 @@
+// Event listeners for the quiz game
 document.addEventListener("DOMContentLoaded", () => {
   const difficultyButtons = document.querySelectorAll(".difficulty-btn");
   const difficultySelection = document.getElementById("difficulty-selection");
@@ -17,10 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const startQuizNow = document.getElementById("startQuizNow");
   const certificatePopup = document.getElementById("certificate-popup");
   const certificateMessage = document.getElementById("certificate-message");
-  const clickSound = new Audio("assets/audio/click-234708.mp3"); // Update path if needed
+  const clickSound = new Audio("assets/audio/click-234708.mp3");
 
   const overlayy = document.querySelector(".overlayy");
 
+  // Set initial game values
   let currentQuestionIndex = 0;
   let currentLevel = "easy";
   let score = 0;
@@ -29,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let usedFiftyFiftyForLevel = false;
   let selectedAnswerButton = null;
 
+  // List of spelling quiz questions organized by difficulty level
   const questions = {
     easy: [
       {
@@ -186,10 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
         correct: "receive",
       },
     ],
-
-    // Medium and Hard questions follow a similar pattern...
   };
 
+  // Show the start quiz section and hide all other sections and popups
   startQuizSection.style.display = "block";
   quizArea.style.display = "none";
   popup.style.display = "none";
@@ -197,11 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
   difficultySelection.style.display = "none";
   instructionOverlay.style.display = "none";
 
+  // Add click event to each difficulty button
   difficultyButtons.forEach((button) => {
     button.addEventListener("click", () => {
       clickSound.currentTime = 0;
       clickSound.play();
-
       currentLevel = button.dataset.level;
       resetQuiz();
       resetLevel();
@@ -211,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Start quiz button: play sound and show difficulty selection
   startQuizButton.addEventListener("click", (event) => {
     startQuizButton.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent form submission
@@ -221,22 +224,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Start Quiz Now button click, sound, hidden instruction overlay
   startQuizNow.addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.play();
-
     instructionOverlay.style.display = "none";
     loadQuestion();
   });
 
+  // Home button: sound, reset quiz and level and return to start screen
   homeButton.addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.play();
-
     resetQuiz();
     resetLevel();
-
-    // Hide game-related UI
     startQuizSection.style.display = "block";
     difficultySelection.style.display = "none";
     quizArea.style.display = "none";
@@ -250,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("score").textContent = "0";
   });
 
+  // Format seconds into a MM:SS time format
   function formatTime(seconds) {
     const mins = Math.floor(seconds / 60)
       .toString()
@@ -258,12 +260,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${mins}:${secs}`;
   }
 
+  // Start a countdown timer, updates the timer display every second,
+  // and triggers game over when the time reaches 0
   function startTimer() {
     clearInterval(timer);
     timer = setInterval(() => {
       countdownTime--;
       timerElement.textContent = formatTime(countdownTime);
-
       if (countdownTime <= 0) {
         clearInterval(timer);
         highlightCorrectAndWrongAnswers();
@@ -272,71 +275,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   }
 
+  // Stop the timer, gets the current question and correct answer,
+  // and select all answer buttons to disable and highlight them later
   function showAnswerPopup(isCorrect) {
     clearInterval(timer); //
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
-
     const answerButtons = document.querySelectorAll(".quiz-box");
-
+    // Disable all answer buttons and highlight the correct answer in green
     answerButtons.forEach((button) => {
       button.disabled = true;
-
       if (button.innerText === correctAnswer) {
         button.style.backgroundColor = "#4CAF50"; // Green
         button.style.color = "white";
       }
     });
-
     // Only mark the selected wrong answer red
     if (!isCorrect && selectedAnswerButton) {
-      selectedAnswerButton.style.backgroundColor = "#f44336"; // Red
+      selectedAnswerButton.style.backgroundColor = "#f44336";
       selectedAnswerButton.style.color = "white";
     }
-
     popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
-
     popup.style.display = "block";
   }
 
+  // Highlights the correct and incorrect answers after the user selects an answer
   function highlightCorrectAndWrongAnswers() {
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
 
-    // Loop through all the answer buttons and highlight them
+    // Disable all answer buttons and highlight correct/incorrect answers
     document.querySelectorAll(".quiz-box").forEach((button) => {
-      button.disabled = true; // Disable all answer buttons
-
+      button.disabled = true;
       if (button.innerText === correctAnswer) {
         // Correct answer: Green background
-        button.style.backgroundColor = "#4CAF50"; // Green
-        button.style.color = "white"; // White text
+        button.style.backgroundColor = "#4CAF50";
+        button.style.color = "white";
       } else {
         // Incorrect answer: Red background
-        button.style.backgroundColor = "#f44336"; // Red
-        button.style.color = "white"; // White text
+        button.style.backgroundColor = "#f44336";
+        button.style.color = "white";
       }
     });
   }
 
+  // Handle the 50/50 lifeline functionality
   fiftyFiftyButton.addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.play();
-
     if (!usedFiftyFiftyForLevel) {
       usedFiftyFiftyForLevel = true;
-      fiftyFiftyButton.disabled = true; // Disable the 50/50 button after use
-      fiftyFiftyButton.textContent = "Used"; // Change text to 'Used'
+      fiftyFiftyButton.disabled = true;
+      fiftyFiftyButton.textContent = "Used";
 
       // Get the current question and the correct answer
       const currentQuestion = questions[currentLevel][currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
-
       // Get the incorrect answers by filtering out the correct one
       const incorrectAnswers = currentQuestion.answers.filter(
         (answer) => answer !== correctAnswer
       );
-
       // Randomly pick two incorrect answers to hide
       const [incorrect1, incorrect2] =
         getRandomIncorrectAnswers(incorrectAnswers);
@@ -348,7 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
           button.innerText === incorrect2
         ) {
           button.style.visibility = "hidden";
-          button.disabled = true; // Disable the button so users cannot click it
+          button.disabled = true;
         }
       });
     }
@@ -368,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return [incorrectAnswers[randomIndex1], incorrectAnswers[randomIndex2]];
   }
 
+  // Reset the quiz state, including score, question index, timer, and 50/50 lifeline usage
   function resetQuiz() {
     score = 0;
     currentQuestionIndex = 0;
@@ -380,34 +379,39 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedAnswerButton = null;
   }
 
+  // Reset the level-specific state, including 50/50 lifeline usage and button stat
   function resetLevel() {
     usedFiftyFiftyForLevel = false;
     resetFiftyFiftyButton();
   }
 
+  // Reset the 50/50 button state based on whether the lifeline has been used for the current level
   function resetFiftyFiftyButton() {
     fiftyFiftyButton.disabled = usedFiftyFiftyForLevel;
     fiftyFiftyButton.textContent = usedFiftyFiftyForLevel ? "Used" : "50/50";
   }
 
+  // Enable the 50/50 button if the lifeline hasn't been used for the current level
   function enableFiftyFiftyButton() {
     if (!usedFiftyFiftyForLevel) {
       fiftyFiftyButton.disabled = false;
     }
   }
 
+  // Loads the current question and its answer choices into the quiz interface
   function loadQuestion() {
     const currentQuestions = questions[currentLevel];
     const currentQuestion = currentQuestions[currentQuestionIndex];
-
     quizOptionsContainer.innerHTML = "";
     document.getElementById("quiz-question-text").textContent =
       "Choose the correct spelling:";
 
+    // Create a button for each answer choice and add it to the quiz container
     currentQuestion.answers.forEach((answer) => {
       const button = document.createElement("button");
       button.classList.add("quiz-box");
       button.innerText = answer;
+      // Remove 'selected' class from all buttons and add it to the clicked one
       button.addEventListener("click", () => {
         document
           .querySelectorAll(".quiz-box")
@@ -418,32 +422,29 @@ document.addEventListener("DOMContentLoaded", () => {
       quizOptionsContainer.appendChild(button);
     });
 
+    // Update the UI and resets necessary values for the next question
     document.getElementById("question-number").textContent =
       currentQuestionIndex + 1;
     selectedAnswerButton = null;
-
     enableFiftyFiftyButton();
-
     errorPopup.style.display = "none";
     popup.style.display = "none";
-
     countdownTime = 30;
     timerElement.textContent = formatTime(countdownTime);
     startTimer();
   }
 
+  // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
     errorPopup.classList.add("show");
 
     const selectedAnswerButton = document.querySelector(".quiz-box.selected");
-
     if (!selectedAnswerButton) {
       showErrorPopup();
     } else {
       clearInterval(timer); // Move here: only stop the timer if an answer is selected
       const currentQuestion = questions[currentLevel][currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
-
       if (selectedAnswerButton.innerText === correctAnswer) {
         score++;
         document.getElementById("score").textContent = score;
@@ -452,6 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
         showAnswerPopup(false);
       }
 
+      // Shows the "Next" or "Results" button after an answer is submitted
       nextQuestionButton.style.display = "block";
       if (currentQuestionIndex === questions[currentLevel].length - 1) {
         nextQuestionButton.textContent = "Results";
@@ -461,68 +463,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Display an error popup if no answer is selected
   function showErrorPopup() {
     errorPopup.innerText = "Please select an answer first.";
     errorPopup.style.display = "block";
     setTimeout(() => {
       errorPopup.style.display = "none";
-    }, 600); // auto-hide after 0.5 seconds
+    }, 600);
   }
 
+  // Handle the "Next" button click to load the next question or show the results
   nextQuestionButton.addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.play();
-
-    // hide popup
     popup.style.display = "none";
-
-    // load next question
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions[currentLevel].length) {
       loadQuestion();
     } else {
-      showCertificate(score); // Show certificate after all questions
+      showCertificate(score);
     }
   });
 
-  // Get elements
-
+  // Display the "Time's up!" popup and highlights the correct and incorrect answers
   function showGameOverPopup() {
     setTimeout(() => {
-      // Get the current question
       const currentQuestion = questions[currentLevel][currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
 
       // Highlight the correct answer and wrong answers
       document.querySelectorAll(".quiz-box").forEach((button) => {
-        button.disabled = true; // Disable all answer buttons
+        button.disabled = true;
         if (button.innerText === correctAnswer) {
-          button.style.backgroundColor = "#4CAF50"; // Green for correct
+          button.style.backgroundColor = "#4CAF50";
           button.style.color = "white";
         } else {
-          button.style.backgroundColor = "#f44336"; // Red for wrong answers
+          button.style.backgroundColor = "#f44336";
           button.style.color = "white";
         }
       });
-
-      // Show the popup that time's up
       popupMessage.textContent = "Time's up!";
-      popup.style.display = "block"; // Show the popup
-
+      popup.style.display = "block";
       nextQuestionButton.textContent = "Next";
-      nextQuestionButton.style.display = "block"; // Ensure the "Next" button is visible
+      nextQuestionButton.style.display = "block";
     }, 500);
   }
 
-  // Show the certificate pop-up with a smooth fade-in effect
-  // Show the certificate pop-up with a smooth fade-in effect
-  // Show the certificate pop-up with a smooth fade-in effect
+  // Show the certificate pop-up with the player's score
   function showCertificate(score) {
     clearInterval(timer);
     certificatePopup.classList.add("show");
     overlayy.style.display = "block";
-
     certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`;
   }
 
@@ -530,39 +522,27 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("play-again-btn").addEventListener("click", () => {
     clickSound.currentTime = 0;
     clickSound.play();
-
-    // Reset the quiz state
     resetQuiz();
     resetLevel();
-
-    // Close the certificate popup and overlay
     certificatePopup.classList.remove("show");
     overlayy.style.display = "none";
-
-    // Show the start quiz section (home page) only, and hide other sections
-    startQuizSection.style.display = "block"; // Home page section visible
-    difficultySelection.style.display = "none"; // Hide difficulty selection (no need for it)
-    quizArea.style.display = "none"; // Hide quiz area if you want to reset everything
+    startQuizSection.style.display = "block";
+    difficultySelection.style.display = "none";
+    quizArea.style.display = "none";
 
     // Reset the progress table (question count, score, and timer)
-    document.getElementById("question-number").textContent = "0"; // Start from question 1
-    document.getElementById("score").textContent = "0"; // Reset score to 0
+    document.getElementById("question-number").textContent = "0";
+    document.getElementById("score").textContent = "0";
     timerElement.textContent = formatTime(countdownTime);
-    // Reset timer to the starting time
-
-    // Optionally reset any other UI elements that need resetting
-    // (e.g., clearing any previous content or selection)
   });
 
+  // Display the answer popup and highlights correct and incorrect answers
   function showAnswerPopup(isCorrect) {
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
-
     const answerButtons = document.querySelectorAll(".quiz-box");
-
     answerButtons.forEach((button) => {
       button.disabled = true;
-
       if (button.innerText === correctAnswer) {
         button.style.backgroundColor = "#4CAF50";
         button.style.color = "white";
@@ -577,7 +557,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ✅ Play sound effect
     const correctSound = document.getElementById("correct-sound");
     const wrongSound = document.getElementById("wrong-sound");
-
     if (isCorrect) {
       correctSound.play();
       popupMessage.textContent = "Correct!";
@@ -585,7 +564,6 @@ document.addEventListener("DOMContentLoaded", () => {
       wrongSound.play();
       popupMessage.textContent = "Wrong!";
     }
-
     popup.style.display = "block";
   }
 });
