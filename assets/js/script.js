@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer;
   let usedFiftyFiftyForLevel = false;
   let selectedAnswerButton = null;
+  let shuffledQuestions = [];
 
   // List of spelling quiz questions organized by difficulty level
   const questions = {
@@ -215,13 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Start quiz button: play sound and show difficulty selection
   startQuizButton.addEventListener("click", (event) => {
-    startQuizButton.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent form submission
       clickSound.currentTime = 0;
       clickSound.play();
       startQuizSection.style.display = "none";
       difficultySelection.style.display = "block";
-    });
   });
 
   // Start Quiz Now button click, sound, hidden instruction overlay
@@ -278,47 +277,81 @@ document.addEventListener("DOMContentLoaded", () => {
   // Stop the timer, gets the current question and correct answer,
   // and select all answer buttons to disable and highlight them later
   function showAnswerPopup(isCorrect) {
-    clearInterval(timer); //
+    clearInterval(timer); // Stop the timer when an answer is selected
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
     const answerButtons = document.querySelectorAll(".quiz-box");
-    // Disable all answer buttons and highlight the correct answer in green
+  
+    // Reset styles for all answer buttons before highlighting correct/incorrect ones
     answerButtons.forEach((button) => {
-      button.disabled = true;
+      button.style.backgroundColor = ""; // Reset background color
+      button.style.color = ""; // Reset text color
+      button.disabled = true; // Disable all buttons after an answer is selected
+    });
+  
+    // Highlight the correct answer in green
+    answerButtons.forEach((button) => {
       if (button.innerText === correctAnswer) {
-        button.style.backgroundColor = "#4CAF50"; // Green
+        button.style.backgroundColor = "#4CAF50"; // Green for correct
         button.style.color = "white";
       }
     });
-    // Only mark the selected wrong answer red
+  
+    // If the selected answer is incorrect, highlight it in red
     if (!isCorrect && selectedAnswerButton) {
-      selectedAnswerButton.style.backgroundColor = "#f44336";
+      selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
       selectedAnswerButton.style.color = "white";
     }
+  
+    // Show popup with the result message
     popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
     popup.style.display = "block";
   }
+  
 
   // Highlights the correct and incorrect answers after the user selects an answer
-  function highlightCorrectAndWrongAnswers() {
-    const currentQuestion = questions[currentLevel][currentQuestionIndex];
-    const correctAnswer = currentQuestion.correct;
+// Highlights the correct and incorrect answers after the user selects an answer
+// Highlights the correct and incorrect answers after the user selects an answer
+// Function to highlight answers after the user makes a selection
+function highlightCorrectAndWrongAnswers() {
+  const currentQuestion = questions[currentLevel][currentQuestionIndex];
+  const correctAnswer = currentQuestion.correct;
+  const answerButtons = document.querySelectorAll(".quiz-box");
 
-    // Disable all answer buttons and highlight correct/incorrect answers
-    document.querySelectorAll(".quiz-box").forEach((button) => {
-      button.disabled = true;
-      if (button.innerText === correctAnswer) {
-        // Correct answer: Green background
-        button.style.backgroundColor = "#4CAF50";
-        button.style.color = "white";
-      } else {
-        // Incorrect answer: Red background
-        button.style.backgroundColor = "#f44336";
-        button.style.color = "white";
-      }
-    });
+  // Log the correct answer for debugging
+  console.log("Correct Answer: ", correctAnswer);
+
+  // Reset all buttons' styles and disable them
+  answerButtons.forEach((button) => {
+    button.disabled = true; // Disable all buttons after selection
+    button.style.backgroundColor = ""; // Reset background color
+    button.style.color = ""; // Reset text color
+  });
+
+  // Loop through all the answer buttons
+  answerButtons.forEach((button) => {
+    console.log("Button Text: ", button.innerText); // Debugging to see the button text
+
+    // Check if the button text matches the correct answer
+    if (button.innerText.trim() === correctAnswer.trim()) {
+      console.log("Correct Answer Button Found!");
+      button.style.backgroundColor = "#4CAF50"; // Green for correct
+      button.style.color = "white";
+    }
+  });
+
+  // If the user selected an incorrect answer, highlight it in red
+  if (selectedAnswerButton && selectedAnswerButton.innerText.trim() !== correctAnswer.trim()) {
+    console.log("Incorrect Answer Selected!");
+    selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
+    selectedAnswerButton.style.color = "white";
   }
+}
 
+  
+
+
+  
   // Handle the 50/50 lifeline functionality
   fiftyFiftyButton.addEventListener("click", () => {
     clickSound.currentTime = 0;
@@ -377,7 +410,24 @@ document.addEventListener("DOMContentLoaded", () => {
     usedFiftyFiftyForLevel = false;
     resetFiftyFiftyButton();
     selectedAnswerButton = null;
+    shuffledQuestions = shuffleArray([...questions[currentLevel]]); // shuffle questions
+    shuffledQuestions.forEach((question) => {
+      // Shuffle answers but keep track of the correct one
+      const correctAnswer = question.correct;
+      question.answers = shuffleArray(question.answers);
+      question.correct = correctAnswer; // Ensure correct answer matches the shuffled answers
+    });
   }
+  
+  
+
+  function shuffleArray(array) {
+    return array
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
+  }
+  
 
   // Reset the level-specific state, including 50/50 lifeline usage and button stat
   function resetLevel() {
@@ -400,8 +450,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Loads the current question and its answer choices into the quiz interface
   function loadQuestion() {
-    const currentQuestions = questions[currentLevel];
-    const currentQuestion = currentQuestions[currentQuestionIndex];
+    const currentQuestion = shuffledQuestions[currentQuestionIndex];
     quizOptionsContainer.innerHTML = "";
     document.getElementById("quiz-question-text").textContent =
       "Choose the correct spelling:";
@@ -437,13 +486,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
     errorPopup.classList.add("show");
-
     const selectedAnswerButton = document.querySelector(".quiz-box.selected");
     if (!selectedAnswerButton) {
       showErrorPopup();
     } else {
-      clearInterval(timer); // Move here: only stop the timer if an answer is selected
-      const currentQuestion = questions[currentLevel][currentQuestionIndex];
+      clearInterval(timer); 
+      const currentQuestion = shuffledQuestions[currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
       if (selectedAnswerButton.innerText === correctAnswer) {
         score++;
@@ -453,9 +501,10 @@ document.addEventListener("DOMContentLoaded", () => {
         showAnswerPopup(false);
       }
 
+     
       // Shows the "Next" or "Results" button after an answer is submitted
       nextQuestionButton.style.display = "block";
-      if (currentQuestionIndex === questions[currentLevel].length - 1) {
+      if (currentQuestionIndex === shuffledQuestions.length - 1) {
         nextQuestionButton.textContent = "Results";
       } else {
         nextQuestionButton.textContent = "Next";

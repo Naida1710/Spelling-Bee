@@ -21,6 +21,7 @@ The **Spelling Bee Quiz** is an interactive spelling game designed to help users
 - I want the quiz to be responsive on all devices, whether I'm playing on a phone, tablet, or desktop.
 - I want to start the game easily, with a button to start the quiz right away and easy navigation to switch between different parts of the game.
 - I want to see how many questions I answered correctly and view my total score at the end.
+- I want the questions to be mixed up and that quiz never starts with the same pattern."
 
 ## Site Owner Goals
 
@@ -33,6 +34,7 @@ The **Spelling Bee Quiz** is an interactive spelling game designed to help users
 - At the end of the quiz, I want to provide a certificate with the user’s score to motivate them to play again or improve their performance
 - I want to make the game accessible on different devices (desktop, tablet, mobile).
 - I want to use sound effects (correct/wrong answers, button clicks).
+- I want the questions to be shuffled so that users cannot memorize the order of correct or incorrect answers.
 
 ## Target Audience
 
@@ -54,8 +56,7 @@ The color scheme was inspired by the colors of bees, honey, and the hive.
 - Popup Background: Gradient of deep purple (#3E2A47) and honey yellow (#F9A602), with golden borders (#B8860B).
 - Popup Text: Bold black text against a light-colored background with a pop of yellow or red for interactive buttons.
 - Submit and Action Buttons: Similar golden yellow tones with a border of dark honey and box-shadow effects to provide a tactile feel.
-- Play Again and Instruction buttons have a green background with white text.
-
+- Play Again and Instruction buttons have the green background with the white text.
 
 
 ## Fonts
@@ -158,8 +159,7 @@ In addition, you may also use this section to discuss plans for additional featu
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
   - ava Script
    - No errors where found when passing through the official [(jshint) validator] 
-- Autoprefixer CSS online. 
-   - Used to make the website more accessable on different browsers.(https://autoprefixer.github.io/)
+browsers.(https://autoprefixer.github.io/)
 - Am I Responsive?
    - Used to test how my website looks and behaves on different screen sizes and devices. 
 
@@ -244,7 +244,7 @@ HTML, CSS and JavaScript.
 - VS code
 - Github
 - Font Awesome
-- Favicon 
+- Coolors site - for making the background and pop-up color
 - Slack - for advice and update
 - Google Developer Tools
 - Favicon - home button icon
