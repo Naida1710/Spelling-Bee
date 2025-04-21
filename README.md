@@ -92,7 +92,7 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
   - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
   - The quiz begins with a friendly Welcome Page that greets the user and sets the tone for the game.
 
-![Welcome page](assets/images/Welcome-page.png)
+
 
   -**Home Button** 
    - A Home button is included in the quiz interface, allowing users to return to the main screen at any point during the game. 
@@ -239,7 +239,7 @@ The score is tracked and updated as the user answers each question. Points are a
 - __Footer__
 -The footer is included at the bottom of the game interface and contains a credit line: “Created by Naida,” giving recognition to the project creator.
 
-![Gallery](assets/images/copyright.png)
+![Gallery](assets/images/footer.png)
 
 - __Favicon__
 - The webpage includes a custom favicon featuring a bee icon and the title “Spelling Bee” displayed in the browser tab, adding a polished and thematic touch to the game.

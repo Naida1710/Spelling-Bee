@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const certificatePopup = document.getElementById("certificate-popup");
   const certificateMessage = document.getElementById("certificate-message");
   const clickSound = new Audio("assets/audio/click-234708.mp3");
-
   const overlayy = document.querySelector(".overlayy");
 
   // Set initial game values
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer;
   let usedFiftyFiftyForLevel = false;
   let selectedAnswerButton = null;
-  let shuffledQuestions = [];
+  
 
   // List of spelling quiz questions organized by difficulty level
   const questions = {
@@ -211,6 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       difficultySelection.style.display = "none";
       quizArea.style.display = "block";
       instructionOverlay.style.display = "flex";
+      loadQuestion();
     });
   });
 
@@ -257,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .padStart(2, "0");
     const secs = (seconds % 60).toString().padStart(2, "0");
     return `${mins}:${secs}`;
+
   }
 
   // Start a countdown timer, updates the timer display every second,
@@ -313,6 +314,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // Highlights the correct and incorrect answers after the user selects an answer
 // Highlights the correct and incorrect answers after the user selects an answer
 // Function to highlight answers after the user makes a selection
+// Global variable to keep track of the selected answer
+
+
 function highlightCorrectAndWrongAnswers() {
   const currentQuestion = questions[currentLevel][currentQuestionIndex];
   const correctAnswer = currentQuestion.correct;
@@ -348,10 +352,6 @@ function highlightCorrectAndWrongAnswers() {
   }
 }
 
-  
-
-
-  
   // Handle the 50/50 lifeline functionality
   fiftyFiftyButton.addEventListener("click", () => {
     clickSound.currentTime = 0;
@@ -372,16 +372,19 @@ function highlightCorrectAndWrongAnswers() {
       const [incorrect1, incorrect2] =
         getRandomIncorrectAnswers(incorrectAnswers);
 
-      // Hide the two incorrect answers by setting their visibility to 'hidden' and disabling them
-      document.querySelectorAll(".quiz-box").forEach((button) => {
-        if (
-          button.innerText === incorrect1 ||
-          button.innerText === incorrect2
-        ) {
-          button.style.visibility = "hidden";
-          button.disabled = true;
-        }
-      });
+        document.querySelectorAll(".quiz-box").forEach((button) => {
+          const buttonText = button.innerText.trim().toLowerCase();
+          const incorrect1Trimmed = incorrect1.trim().toLowerCase();
+          const incorrect2Trimmed = incorrect2.trim().toLowerCase();
+        
+          if (
+            buttonText === incorrect1Trimmed ||
+            buttonText === incorrect2Trimmed
+          ) {
+            button.style.visibility = "hidden";
+            button.disabled = true;
+          }
+        });
     }
   });
 
@@ -410,24 +413,18 @@ function highlightCorrectAndWrongAnswers() {
     usedFiftyFiftyForLevel = false;
     resetFiftyFiftyButton();
     selectedAnswerButton = null;
-    shuffledQuestions = shuffleArray([...questions[currentLevel]]); // shuffle questions
-    shuffledQuestions.forEach((question) => {
-      // Shuffle answers but keep track of the correct one
-      const correctAnswer = question.correct;
-      question.answers = shuffleArray(question.answers);
-      question.correct = correctAnswer; // Ensure correct answer matches the shuffled answers
+  
+    // Reset button styles before shuffling questions
+    const answerButtons = document.querySelectorAll(".quiz-box");
+    answerButtons.forEach((button) => {
+      button.style.backgroundColor = "";
+      button.style.color = "";
+      button.disabled = false;  // Re-enable buttons
     });
+  
   }
-  
-  
+   
 
-  function shuffleArray(array) {
-    return array
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
-  }
-  
 
   // Reset the level-specific state, including 50/50 lifeline usage and button stat
   function resetLevel() {
@@ -450,30 +447,27 @@ function highlightCorrectAndWrongAnswers() {
 
   // Loads the current question and its answer choices into the quiz interface
   function loadQuestion() {
-    const currentQuestion = shuffledQuestions[currentQuestionIndex];
-    quizOptionsContainer.innerHTML = "";
-    document.getElementById("quiz-question-text").textContent =
-      "Choose the correct spelling:";
-
-    // Create a button for each answer choice and add it to the quiz container
+    console.log("Loading question...");
+    const currentQuestion = questions[currentLevel][currentQuestionIndex];
+  
+    quizOptionsContainer.innerHTML = ""; // Clear previous answers
+    document.getElementById("quiz-question-text").textContent = currentQuestion.question;
+  
     currentQuestion.answers.forEach((answer) => {
       const button = document.createElement("button");
       button.classList.add("quiz-box");
       button.innerText = answer;
-      // Remove 'selected' class from all buttons and add it to the clicked one
+  
       button.addEventListener("click", () => {
-        document
-          .querySelectorAll(".quiz-box")
-          .forEach((btn) => btn.classList.remove("selected"));
+        document.querySelectorAll(".quiz-box").forEach((btn) => btn.classList.remove("selected"));
         button.classList.add("selected");
         selectedAnswerButton = button;
       });
+  
       quizOptionsContainer.appendChild(button);
     });
-
-    // Update the UI and resets necessary values for the next question
-    document.getElementById("question-number").textContent =
-      currentQuestionIndex + 1;
+  
+    document.getElementById("question-number").textContent = currentQuestionIndex + 1;
     selectedAnswerButton = null;
     enableFiftyFiftyButton();
     errorPopup.style.display = "none";
@@ -482,35 +476,44 @@ function highlightCorrectAndWrongAnswers() {
     timerElement.textContent = formatTime(countdownTime);
     startTimer();
   }
+  
 
   // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
-    errorPopup.classList.add("show");
+    // Ensure the selected answer button exists before proceeding
     const selectedAnswerButton = document.querySelector(".quiz-box.selected");
+  
+    // Check if no answer is selected
     if (!selectedAnswerButton) {
-      showErrorPopup();
+      showErrorPopup();  // Show error if no answer is selected
     } else {
-      clearInterval(timer); 
-      const currentQuestion = shuffledQuestions[currentQuestionIndex];
+      // Stop the timer once an answer is selected
+      clearInterval(timer);
+  
+      // Get the current question and correct answer
+      const currentQuestion = questions[currentLevel][currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
+  
+      // Compare the selected answer to the correct one
       if (selectedAnswerButton.innerText === correctAnswer) {
-        score++;
+        score++;  // Increment score for correct answer
         document.getElementById("score").textContent = score;
-        showAnswerPopup(true);
+        showAnswerPopup(true);  // Show correct answer popup
       } else {
-        showAnswerPopup(false);
+        showAnswerPopup(false);  // Show wrong answer popup
       }
-
-     
-      // Shows the "Next" or "Results" button after an answer is submitted
+  
+      // Show the next question or results
       nextQuestionButton.style.display = "block";
-      if (currentQuestionIndex === shuffledQuestions.length - 1) {
-        nextQuestionButton.textContent = "Results";
+  
+      if (currentQuestionIndex === questions[currentLevel].length - 1) {
+        nextQuestionButton.textContent = "Results";  // On last question, show "Results"
       } else {
-        nextQuestionButton.textContent = "Next";
+        nextQuestionButton.textContent = "Next";  // Otherwise, show "Next"
       }
     }
   });
+  
 
   // Display an error popup if no answer is selected
   function showErrorPopup() {
@@ -565,6 +568,7 @@ function highlightCorrectAndWrongAnswers() {
     certificatePopup.classList.add("show");
     overlayy.style.display = "block";
     certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`;
+
   }
 
   // Close the certificate pop-up when the close button is clicked

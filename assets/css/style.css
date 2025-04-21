@@ -186,13 +186,13 @@ td {
 
 /* Style correct answers in green and wrong answers in red with white text. */
 .correct-answer {
-  background-color: #28a745 !important; /* Green */
+  background-color: #28a745 !important; 
   color: white;
   border: 2px solid #218838;
 }
 
 .wrong-answer {
-  background-color: #dc3545 !important; /* Red */
+  background-color: #dc3545 !important; 
   color: white;
   border: 2px solid #c82333;
 }
