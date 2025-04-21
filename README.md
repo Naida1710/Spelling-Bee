@@ -46,7 +46,7 @@ The **Spelling Bee Quiz** is an interactive spelling game designed to help users
 
 The color scheme was inspired by the colors of bees, honey, and the hive.
 
-![Alt text](assets/images/Colors-pallete.png)
+![Colors](assets/images/Colors-pallete.png)
 
 - Body Background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%), which stands for honey-themed background color.
 - Game Area Background: A soft yellow (#ffff99) with a honey-like golden border and box-shadow (#B8860B, a dark honey color).
@@ -91,28 +91,28 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
   - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
 
-![Nav Bar](assets/images/Welcome-page.png)
+![Welcome page](assets/images/Welcome-page.png)
 
   -**The Home Button** 
    -The Home button is also present throughout the quiz, allowing the user to return to the beginning of the quiz at any time if they wish.
 
-  ![Nav Bar](assets/images/Home-button.png)
+  ![Home Button](assets/images/Home-button.png)
 
   -**Heading** 
   -I decided to include the heading as well, to improve visual appearance. I used dark latte gray color and a transparent logo image of a bee.
 
-    ![Nav Bar](assets/images/heading.png)
+  ![Heading](assets/images/heading.png)
 
   -**Tables** 
   -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
   The quiz contais ten questions per level. The timer counts down from 30 seconds. 
   
-![Nav Bar](assets/images/tables.png)
+![Boards](assets/images/tables.png)
 
 -**Welcome message** 
 -Introduces the user to the quiz.
 
-![Nav Bar](assets/images/welcome%20message.png)
+![Welcome message](assets/images/welcome%20message.png)
 
 -**Start Quiz Button** 
 -The Start Quiz button is used to begin the quiz, transitioning the user from the welcome page to the next modal. It changes the color when hovered over. The button zooms in when hovered.
@@ -130,8 +130,6 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
   - There is also a text message providing clear instructions for users to choose their level.
   - The tables are also disabled on the difficulty level modal.
   
-  
-
 ![Difficulty level modal](assets/images/Levels.png)
 
 -**Text message** 
@@ -140,26 +138,94 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
 ![Footer](assets/images/difficulty%20level%20text.png)
 
--**Buttons** 
+-**Difficulty Level Buttons** 
+- There are tree buttons for: Easy, Medium and Hard level.
 - The buttons change the color when hovered over.
 - The buttons zoom in when hovered.
 
-![Footer](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
+![Level buttons](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
 
 - __Game Instructions modal__
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
+  - The Quiz Instructions section will guide users through the gameplay, ensuring they understand the rules and how to maximize their chances of success:
+  - Time Limit: Users will learn that they have 30 seconds to answer each question, and the timer will begin as soon as the question appears. This will help them manage their time efficiently.
 
-![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
+- 50/50 Lifeline: Users will understand that the "50/50" button can be used once per level to eliminate two incorrect answers, giving them a better chance of choosing the right one.
+
+- Answer Submission: Users will know that after selecting the correct answer, they need to hit the "Submit" button to lock in their choice. They are encouraged to use the 50/50 lifeline before submitting if they are unsure.
+
+- Progress Tracking: Users will be able to track their performance by seeing how many questions they've answered out of the total, helping them stay focused and motivated throughout the game.
+
+- Score Tracking: Users will monitor their score as they play, earning points for correct and quick answers, keeping them engaged and motivated.
+
+- Certificate Reward: At the end of the quiz, users will receive a certificate that highlights their results, providing them with a sense of accomplishment and closure.
+
+This section is designed to ensure users understand how to play the quiz effectively while motivating them to do their best with clear guidance and exciting rewards.
+
+![Instructions](assets/images/Game-instructions.png)
+
+- **Let's go Button**
+- The modal contains Let's go Button, which leads to quiz questions.
+- It confirms that the user understands the instructions and is ready to begin the quiz.
+
+![Let's go Button](assets/images/lets-go.png)
 
 - __Quiz Questions modal__
 
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
+  - The quiz content dynamically displays the current question along with multiple answer options for the user to select from.
+  - Users can choose the correct answer from the available options, making the quiz engaging and interactive.
 
-![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
 
+![Questions](assets/images/Questions.png) 
+
+- **Tables**
+- This ensures users are aware of the time pressure, their current progress, and their score throughout the quiz.
+
+- Timer:
+A countdown timer is displayed for each question. Users have a limited time to answer (e.g., 30 seconds per question). The timer starts as soon as the question appears and automatically skips the question if time runs out.
+- Question Count:
+The quiz tracks and displays the number of questions answered, so users can see their progress throughout the quiz.
+- Scoring Table:
+The score is tracked and updated as the user answers each question. Points are awarded based on correct answers, with higher scores given for quicker responses. Users can keep track of their total score as they progress through the game.
+
+- **Submit Button**
+- A Submit Answer Button is provided for users to submit their selected answer. This action triggers the validation and moves the quiz forward.
+- The Submit Answer Button includes a bounce and hover effect to enhance the user experience. These animations make the interface feel more dynamic and intuitive, encouraging users to interact with confidence.
+
+![Submit Button](assets/images/submit.png)
+![Submit Button Hover](assets/images/bounce.png) 
+
+- **Error Popup**
+- An error popup is shown if the user attempts to submit an answer without selecting one. This ensures users are reminded to make a choice before proceeding.
+
+![Error popup](assets/images/errorpopup.png)
+
+- **50/50 Button**
+- The game includes a "50/50" button that users can use once per level. When activated, it eliminates two incorrect answers, increasing the chances of selecting the correct one. This adds a strategic element to the quiz and supports users who are unsure of the answer.
+- It can be used only once per level.
+
+![Error popup](assets/images/50:50.png)
+
+- **Timer Popup**
+- If the user does not select an answer within 30 seconds, the quiz moves to the next question. Before that, a Timer popup appears, visually displaying all answer options—the correct answer highlighted in green, and the incorrect ones in red. 
+- This gives immediate feedback and helps the user learn from their mistakes.
+- When a popup appears (e.g., for a correct, incorrect, or time's up message), the timer in the background is automatically paused. - This ensures that users are not rushed while reviewing feedback or preparing to move on to the next question.
+
+- **Wrong/Correct Answer Popup**
+- If the user selects the wrong answer, a popup will appear displaying a "Wrong" message. The selected (incorrect) answer is highlighted in red, while the correct answer is shown in green to provide immediate feedback and help with learning.
+
+![Error popup](assets/images/wron.png)
+
+- **Next Button**
+- After each question—whether answered correctly, incorrectly, or skipped due to time running out—a "Next" button appears in the popup. This allows the user to move forward at their own pace, maintaining control over the quiz flow even when the timer has expired.
+
+![Error popup](assets/images/Popup.png)
+
+- **Selected Question**
+- When a user selects an answer, it is highlighted in orange to clearly indicate their current choice before submitting. 
+- This improves clarity and enhances user experience by making interactions more intuitive
+
+![Error popup](assets/images/selectedq.png)
 - __The Certificate__ 
 
   - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
