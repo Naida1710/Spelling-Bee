@@ -90,16 +90,18 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 - __Welcome page__
 
   - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
+  - The quiz begins with a friendly Welcome Page that greets the user and sets the tone for the game.
 
 ![Welcome page](assets/images/Welcome-page.png)
 
   -**The Home Button** 
-   -The Home button is also present throughout the quiz, allowing the user to return to the beginning of the quiz at any time if they wish.
+   - A Home button is included in the quiz interface, allowing users to return to the main screen at any point during the game. 
+   - This improves navigation and provides users with an easy way to restart or choose a different difficulty level.
 
   ![Home Button](assets/images/Home-button.png)
 
   -**Heading** 
-  -I decided to include the heading as well, to improve visual appearance. I used dark latte gray color and a transparent logo image of a bee.
+  - A prominent heading displaying the quiz title is included at the top of the quiz. This provides a clear and consistent context throughout the game, making it visually appealing.
 
   ![Heading](assets/images/heading.png)
 
@@ -110,12 +112,13 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 ![Boards](assets/images/tables.png)
 
 -**Welcome message** 
--Introduces the user to the quiz.
+- A friendly and engaging welcome message greets users upon landing on the quiz page. It introduces the game and invites them to begin, setting a positive tone for the quiz experience.
 
 ![Welcome message](assets/images/welcome%20message.png)
 
 -**Start Quiz Button** 
--The Start Quiz button is used to begin the quiz, transitioning the user from the welcome page to the next modal. It changes the color when hovered over. The button zooms in when hovered.
+- A clearly visible and user-friendly "Start Quiz" button initiates the quiz experience. 
+- It becomes active once the user reads the instructions, ensuring they are informed before beginning the game. It changes the color when hovered over. The button zooms in when hovered.
 
 ![Start Quiz Button](assets/images/SQ.png)
 ![Hover](assets/images/SQ%20hover.png)
@@ -233,22 +236,15 @@ The score is tracked and updated as the user answers each question. Points are a
 
 ![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
 
-- __Gallery__
+- __Footer__
+-The footer is included at the bottom of the game interface and contains a credit line: “Created by Naida,” giving recognition to the project creator.
 
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
+![Gallery](assets/images/copyright.png)
 
-![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
+- __Favicon__
+- The webpage includes a custom favicon featuring a bee icon and the title “Spelling Bee” displayed in the browser tab, adding a polished and thematic touch to the game.
 
-- __The Sign Up Page__
-
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
-
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+![Sign Up](assets/images/Faviconn.png)
 
 ## Features Left to Implement
 
