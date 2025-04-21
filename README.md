@@ -104,7 +104,8 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
     ![Nav Bar](assets/images/heading.png)
 
   -**Tables** 
-  -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page.
+  -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
+  The quiz contais ten questions per level. The timer counts down from 30 seconds. 
   
 ![Nav Bar](assets/images/tables.png)
 
@@ -114,7 +115,7 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 ![Nav Bar](assets/images/welcome%20message.png)
 
 -**Start Quiz Button** 
--The Start Quiz button is used to begin the quiz, transitioning the user from the welcome page to the next modal. It changes the color when hovered over.
+-The Start Quiz button is used to begin the quiz, transitioning the user from the welcome page to the next modal. It changes the color when hovered over. The button zooms in when hovered.
 
 ![Start Quiz Button](assets/images/SQ.png)
 ![Hover](assets/images/SQ%20hover.png)
@@ -123,28 +124,43 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 -I included the copyright message at the bottom of the page, which remains visible at all times.
 ![Footer](assets/images/copyright.png)
 
-- __The landing page image__
+- __Difficulty levels modal__
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
+  - Beside the Home Button, copyright message and Progress, Timer and Score Tables, it includes the buttons for Easy, Medium and Hard levels, where users can choose the difficulty level before the game starts. Each level contains ten questions, and they are shuffled every time, so the quiz never starts with the same question.
+  - There is also a text message providing clear instructions for users to choose their level.
+  - The tables are also disabled on the difficulty level modal.
+  
+  
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
+![Difficulty level modal](assets/images/Levels.png)
 
-- __Club Ethos Section__
+-**Text message** 
+
+- The text implies that there are multiple levels of difficulty available, and the user needs to pick up one according to their preference.
+
+![Footer](assets/images/difficulty%20level%20text.png)
+
+-**Buttons** 
+- The buttons change the color when hovered over.
+- The buttons zoom in when hovered.
+
+![Footer](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
+
+- __Game Instructions modal__
 
   - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
   - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
 
 ![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
 
-- __Meetup Times section__
+- __Quiz Questions modal__
 
   - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
   - This section will be updated as these times change to keep the user up to date. 
 
 ![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
 
-- __The Footer__ 
+- __The Certificate__ 
 
   - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
   - The footer is valuable to the user as it encourages them to keep connected via social media
