@@ -81,16 +81,47 @@ The font used in my stylesheet for various elements is primarily 'Comic Sans MS'
 
 - **Scoreboard**: Players earn points for correct answers. The score is updated dynamically during the game.
 
-- **Certificate**: At the end of the quiz, users receive a certificate with their results, congratulating them on their performance.
+- **Certificate**: At the end of the quiz, users receive a certificate with their scores.
 
 ### Existing Features
 
-- __Navigation Bar__
+Instead of adding extra pages, modals are utilized to provide a smoother and more intuitive user experience, keeping everything in one place.
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+- __Welcome page__
 
-![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
+  - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
+
+![Nav Bar](assets/images/Welcome-page.png)
+
+  -**The Home Button** 
+   -The Home button is also present throughout the quiz, allowing the user to return to the beginning of the quiz at any time if they wish.
+
+  ![Nav Bar](assets/images/Home-button.png)
+
+  -**Heading** 
+  -I decided to include the heading as well, to improve visual appearance. I used dark latte gray color and a transparent logo image of a bee.
+
+    ![Nav Bar](assets/images/heading.png)
+
+  -**Tables** 
+  -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page.
+  
+![Nav Bar](assets/images/tables.png)
+
+-**Welcome message** 
+-Introduces the user to the quiz.
+
+![Nav Bar](assets/images/welcome%20message.png)
+
+-**Start Quiz Button** 
+-The Start Quiz button is used to begin the quiz, transitioning the user from the welcome page to the next modal. It changes the color when hovered over.
+
+![Start Quiz Button](assets/images/SQ.png)
+![Hover](assets/images/SQ%20hover.png)
+
+-**Copyright** 
+-I included the copyright message at the bottom of the page, which remains visible at all times.
+![Footer](assets/images/copyright.png)
 
 - __The landing page image__
 
