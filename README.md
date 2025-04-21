@@ -94,16 +94,16 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
 ![Welcome page](assets/images/Welcome-page.png)
 
-  -**The Home Button** 
+  -**Home Button** 
    - A Home button is included in the quiz interface, allowing users to return to the main screen at any point during the game. 
    - This improves navigation and provides users with an easy way to restart or choose a different difficulty level.
 
-  ![Home Button](assets/images/Home-button.png)
+  ![Home Button](assets/images/HB.png)
 
   -**Heading** 
   - A prominent heading displaying the quiz title is included at the top of the quiz. This provides a clear and consistent context throughout the game, making it visually appealing.
 
-  ![Heading](assets/images/heading.png)
+  ![Heading](assets/images/titlee.png)
 
   -**Tables** 
   -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
@@ -125,7 +125,7 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
 -**Copyright** 
 -I included the copyright message at the bottom of the page, which remains visible at all times.
-![Footer](assets/images/copyright.png)
+![Footer](assets/images/footer.png)
 
 - __Difficulty levels modal__
 
