@@ -21,7 +21,6 @@ The **Spelling Bee Quiz** is an interactive spelling game designed to help users
 - I want the quiz to be responsive on all devices, whether I'm playing on a phone, tablet, or desktop.
 - I want to start the game easily, with a button to start the quiz right away and easy navigation to switch between different parts of the game.
 - I want to see how many questions I answered correctly and view my total score at the end.
-- I want the questions to be mixed up and that quiz never starts with the same pattern."
 
 ## Site Owner Goals
 
@@ -34,11 +33,10 @@ The **Spelling Bee Quiz** is an interactive spelling game designed to help users
 - At the end of the quiz, I want to provide a certificate with the user’s score to motivate them to play again or improve their performance
 - I want to make the game accessible on different devices (desktop, tablet, mobile).
 - I want to use sound effects (correct/wrong answers, button clicks).
-- I want the questions to be shuffled so that users cannot memorize the order of correct or incorrect answers.
 
 ## Target Audience
 
-- **Age Range**: 12–50 years, with specific interests for younger learners, language enthusiasts, casual players, and educators. 
+- **Age Range**: 12 onwards, with specific interests for younger learners, language enthusiasts, casual players, and educators. 
 
 ## Design
 
@@ -92,39 +90,44 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
   - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
   - The quiz begins with a friendly Welcome Page that greets the user and sets the tone for the game.
 
+  - **Home Button** 
 
-
-  -**Home Button** 
    - A Home button is included in the quiz interface, allowing users to return to the main screen at any point during the game. 
    - This improves navigation and provides users with an easy way to restart or choose a different difficulty level.
 
   ![Home Button](assets/images/HB.png)
 
-  -**Heading** 
+  - **Heading** 
+
   - A prominent heading displaying the quiz title is included at the top of the quiz. This provides a clear and consistent context throughout the game, making it visually appealing.
 
   ![Heading](assets/images/titlee.png)
 
-  -**Tables** 
-  -The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
+  - **Tables** 
+
+  - The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
   The quiz contais ten questions per level. The timer counts down from 30 seconds. 
   
-![Boards](assets/images/tables.png)
+![Tables](assets/images/tables.png)
 
--**Welcome message** 
+- **Welcome message** 
+
 - A friendly and engaging welcome message greets users upon landing on the quiz page. It introduces the game and invites them to begin, setting a positive tone for the quiz experience.
 
 ![Welcome message](assets/images/welcome%20message.png)
 
--**Start Quiz Button** 
+- **Start Quiz Button** 
+
 - A clearly visible and user-friendly "Start Quiz" button initiates the quiz experience. 
 - It becomes active once the user reads the instructions, ensuring they are informed before beginning the game. It changes the color when hovered over. The button zooms in when hovered.
 
 ![Start Quiz Button](assets/images/SQ.png)
 ![Hover](assets/images/SQ%20hover.png)
 
--**Copyright** 
--I included the copyright message at the bottom of the page, which remains visible at all times.
+- **Footer** 
+
+- I included the copyright message at the bottom of the page, which remains visible at all times.
+
 ![Footer](assets/images/footer.png)
 
 - __Difficulty levels modal__
@@ -135,13 +138,13 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
   
 ![Difficulty level modal](assets/images/Levels.png)
 
--**Text message** 
+- **Text message** 
 
 - The text implies that there are multiple levels of difficulty available, and the user needs to pick up one according to their preference.
 
-![Footer](assets/images/difficulty%20level%20text.png)
+![Text message](assets/images/difficulty%20level%20text.png)
 
--**Difficulty Level Buttons** 
+- **Difficulty Level Buttons** 
 - There are tree buttons for: Easy, Medium and Hard level.
 - The buttons change the color when hovered over.
 - The buttons zoom in when hovered.
@@ -152,22 +155,18 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
   - The Quiz Instructions section will guide users through the gameplay, ensuring they understand the rules and how to maximize their chances of success:
   - Time Limit: Users will learn that they have 30 seconds to answer each question, and the timer will begin as soon as the question appears. This will help them manage their time efficiently.
-
-- 50/50 Lifeline: Users will understand that the "50/50" button can be used once per level to eliminate two incorrect answers, giving them a better chance of choosing the right one.
-
-- Answer Submission: Users will know that after selecting the correct answer, they need to hit the "Submit" button to lock in their choice. They are encouraged to use the 50/50 lifeline before submitting if they are unsure.
-
-- Progress Tracking: Users will be able to track their performance by seeing how many questions they've answered out of the total, helping them stay focused and motivated throughout the game.
-
-- Score Tracking: Users will monitor their score as they play, earning points for correct and quick answers, keeping them engaged and motivated.
-
-- Certificate Reward: At the end of the quiz, users will receive a certificate that highlights their results, providing them with a sense of accomplishment and closure.
+  - 50/50 Lifeline: Users will understand that the "50/50" button can be used once per level to eliminate two incorrect answers, giving them a better chance of choosing the right one.
+  - Answer Submission: Users will know that after selecting the correct answer, they need to hit the "Submit" button to lock in their choice. They are encouraged to use the 50/50 lifeline before submitting if they are unsure.
+  - Progress Tracking: Users will be able to track their performance by seeing how many questions they've answered out of the total, helping them stay focused and motivated throughout the game.
+  - Score Tracking: Users will monitor their score as they play, earning points for correct and quick answers, keeping them engaged and motivated.
+  - Certificate Reward: At the end of the quiz, users will receive a certificate that highlights their results, providing them with a sense of accomplishment and closure.
 
 This section is designed to ensure users understand how to play the quiz effectively while motivating them to do their best with clear guidance and exciting rewards.
 
 ![Instructions](assets/images/Game-instructions.png)
 
 - **Let's go Button**
+
 - The modal contains Let's go Button, which leads to quiz questions.
 - It confirms that the user understands the instructions and is ready to begin the quiz.
 
@@ -182,16 +181,15 @@ This section is designed to ensure users understand how to play the quiz effecti
 ![Questions](assets/images/Questions.png) 
 
 - **Tables**
+
 - This ensures users are aware of the time pressure, their current progress, and their score throughout the quiz.
 
-- Timer:
-A countdown timer is displayed for each question. Users have a limited time to answer (e.g., 30 seconds per question). The timer starts as soon as the question appears and automatically skips the question if time runs out.
-- Question Count:
-The quiz tracks and displays the number of questions answered, so users can see their progress throughout the quiz.
-- Scoring Table:
-The score is tracked and updated as the user answers each question. Points are awarded based on correct answers, with higher scores given for quicker responses. Users can keep track of their total score as they progress through the game.
+- Timer: A countdown timer is displayed for each question. Users have a limited time to answer (e.g., 30 seconds per question). The timer starts as soon as the question appears and automatically skips the question if time runs out.
+- Question Count: The quiz tracks and displays the number of questions answered, so users can see their progress throughout the quiz.
+- Scoring Table: The score is tracked and updated as the user answers each question. Points are awarded based on correct answers, with higher scores given for quicker responses. Users can keep track of their total score as they progress through the game.
 
 - **Submit Button**
+
 - A Submit Answer Button is provided for users to submit their selected answer. This action triggers the validation and moves the quiz forward.
 - The Submit Answer Button includes a bounce and hover effect to enhance the user experience. These animations make the interface feel more dynamic and intuitive, encouraging users to interact with confidence.
 
@@ -199,6 +197,7 @@ The score is tracked and updated as the user answers each question. Points are a
 ![Submit Button Hover](assets/images/bounce.png) 
 
 - **Error Popup**
+
 - An error popup is shown if the user attempts to submit an answer without selecting one. This ensures users are reminded to make a choice before proceeding.
 
 ![Error popup](assets/images/errorpopup.png)
@@ -250,13 +249,13 @@ The score is tracked and updated as the user answers each question. Points are a
 
 - **Daily Challanges**- I would like to introduce daily word challenges to keep players engaged.
 
--**Multiplayer Mode**- I want to add a competitive mode where users can challenge friends or random players in real time.
+- **Multiplayer Mode**- I want to add a competitive mode where users can challenge friends or random players in real time.
 
--**Custom Word Lists**- I would like to let users or teachers upload their own word lists for personalized quizzes.
+- **Custom Word Lists**- I would like to let users or teachers upload their own word lists for personalized quizzes.
 
--**Rewards and Badges**- I would like to gamify the experience by unlocking badges or rewards based on performance.
+- **Rewards and Badges**- I would like to gamify the experience by unlocking badges or rewards based on performance.
 
--**User Accounts & Progress Tracking**- I would like to enable users to create profiles, save their scores, and track progress over time.
+- **User Accounts & Progress Tracking**- I would like to enable users to create profiles, save their scores, and track progress over time.
 
 ## Testing 
 
@@ -266,9 +265,8 @@ The score is tracked and updated as the user answers each question. Points are a
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/#textarea)
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
-  - ava Script
+  - Java Script
    - No errors where found when passing through the official [(jshint) validator] 
-browsers.(https://autoprefixer.github.io/)
 - Am I Responsive?
    - Used to test how my website looks and behaves on different screen sizes and devices. 
 
@@ -276,11 +274,11 @@ browsers.(https://autoprefixer.github.io/)
 
 - Google Lighthouse in Google Chrome Developer Tools was used to test the performance of the website.
 
-![Alt text](assets/images/Lighthouse.png)
+![Lighthouse](assets/images/Lighthouse.png)
 
 ### Performing test on various devices
 
-- The website was tested on the following devices:
+- The website was tested on multiple devices using the browser's inspect tool to emulate different screen sizes and resolutions:
  - iPhone SE
  - iPhone XR
  - iPhone 12 Pro
@@ -294,6 +292,12 @@ browsers.(https://autoprefixer.github.io/)
  - Samsun Galaxy A51/71
  - Nest Hub Max
  - galaxy fold
+
+ - The responsiveness of the website has been tested on available phones in my surroundings to ensure proper display on different devices:
+- iPhone 15 Pro Max
+- iPhone 15 Pro 
+- Samsung Galaxy A4
+- Samsung Galaxy S25 Ultra
 
 ### Browser testing
 
@@ -311,7 +315,7 @@ browsers.(https://autoprefixer.github.io/)
 
 ### Unfixed Bugs
 
-None of them.
+- As of the latest testing, no bugs have been identified. The website is functioning as expected, to the best of my knowledge.
 
 ## Deployment
  

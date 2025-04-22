@@ -488,8 +488,11 @@ function highlightCorrectAndWrongAnswers() {
   
     // Check if no answer is selected
     if (!selectedAnswerButton) {
-      showErrorPopup();  // Show error if no answer is selected
-    } else {
+      errorPopup.style.display = "block";
+      return;
+    } 
+  
+    else {
       // Stop the timer once an answer is selected
       clearInterval(timer);
   
@@ -520,9 +523,12 @@ function highlightCorrectAndWrongAnswers() {
 
   // Display an error popup if no answer is selected
   function showErrorPopup() {
+ 
     errorPopup.innerText = "Please select an answer first.";
     errorPopup.style.display = "block";
+    
     setTimeout(() => {
+     
       errorPopup.style.display = "none";
     }, 600);
   }
@@ -564,6 +570,9 @@ function highlightCorrectAndWrongAnswers() {
           button.style.color = "white";
         }
       });
+      submitButton.disabled = true;
+      submitButton.style.pointerEvents = "none";  // Prevent hover effects
+      submitButton.style.animation = "none"; // Remove any animations like bounce
       popupMessage.textContent = "Time's up!";
       popup.style.display = "block";
       nextQuestionButton.textContent = "Next";
