@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const certificateMessage = document.getElementById("certificate-message");
   const clickSound = new Audio("assets/audio/click-234708.mp3");
   const overlayy = document.querySelector(".overlayy");
+ 
+
 
   // Set initial game values
   let currentQuestionIndex = 0;
@@ -282,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
     const correctAnswer = currentQuestion.correct;
     const answerButtons = document.querySelectorAll(".quiz-box");
-  
+    submitButton.disabled = true;
     // Reset styles for all answer buttons before highlighting correct/incorrect ones
     answerButtons.forEach((button) => {
       button.style.backgroundColor = ""; // Reset background color
@@ -307,16 +309,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show popup with the result message
     popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
     popup.style.display = "block";
+   
   }
+ 
   
 
   // Highlights the correct and incorrect answers after the user selects an answer
-// Highlights the correct and incorrect answers after the user selects an answer
-// Highlights the correct and incorrect answers after the user selects an answer
-// Function to highlight answers after the user makes a selection
-// Global variable to keep track of the selected answer
-
-
 function highlightCorrectAndWrongAnswers() {
   const currentQuestion = questions[currentLevel][currentQuestionIndex];
   const correctAnswer = currentQuestion.correct;
@@ -480,6 +478,7 @@ function highlightCorrectAndWrongAnswers() {
 
   // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
+    submitButton.disabled = true;
     // Ensure the selected answer button exists before proceeding
     const selectedAnswerButton = document.querySelector(".quiz-box.selected");
   
@@ -529,6 +528,10 @@ function highlightCorrectAndWrongAnswers() {
     clickSound.currentTime = 0;
     clickSound.play();
     popup.style.display = "none";
+    submitButton.disabled = false;  // Re-enable the submit button
+    
+
+
     currentQuestionIndex++;
 
     if (currentQuestionIndex < questions[currentLevel].length) {
@@ -602,10 +605,11 @@ function highlightCorrectAndWrongAnswers() {
       }
     });
 
-    if (!isCorrect && selectedAnswerButton) {
+    if (!isCorrect &&  selectedAnswerButton) {
       selectedAnswerButton.style.backgroundColor = "#f44336";
       selectedAnswerButton.style.color = "white";
     }
+
 
     // ✅ Play sound effect
     const correctSound = document.getElementById("correct-sound");
