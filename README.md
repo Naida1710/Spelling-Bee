@@ -102,8 +102,6 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
   - A prominent heading displaying the quiz title is included at the top of the quiz. This provides a clear and consistent context throughout the game, making it visually appealing.
 
-  ![Heading](assets/images/titlee.png)
-
 ##### Tables 
 
   - The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
@@ -165,7 +163,7 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
 This section is designed to ensure users understand how to play the quiz effectively while motivating them to do their best with clear guidance and exciting rewards.
 
-![Instructions](assets/images/game)
+![Instructions](assets/images/sdds.png)
 
 ##### Let's go Button
 
@@ -282,19 +280,19 @@ This section is designed to ensure users understand how to play the quiz effecti
 ### Validator Testing 
 
 - HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/#textarea)
+  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
 
 ![HTML](assets/images/html.png)
 
 - CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
 
-  ![CSS](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
+  ![CSS](assets/images/Css.png)
 
   - Java Script
    - No errors where found when passing through the official [(jshint) validator] 
 
-  ![Java](assets/images/Css.png)
+  ![Java](assets/images/sds.png) (https://jshint.com/)
 
 - Responsively App
    - Used to test how my website looks and behaves on different screen sizes and devices. 
@@ -394,8 +392,12 @@ When you hover over interactive elements (e.g. answer buttons, lifeline, start b
 ### Performance 
 
 - Google Lighthouse in Google Chrome Developer Tools was used to test the performance of the website.
+- **Performance**: 99%
+- **Accessibiliy**: 100%
+- **Best Practices**: 100%
+- **SEO**: 100%
 
-![Lighthouse](assets/images/Lighthouse.png)
+![Lighthouse](assets/images/lighthousep.png)
 
 ### Performing test on various devices
 
