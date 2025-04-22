@@ -64,9 +64,7 @@ The font used in my stylesheet for various elements is primarily 'Comic Sans MS'
 
 ## Wireframes
 
-- Big screens - laptop & desktop
-- Medium screens - tablets
-- Small screens - mobile
+![Wireframes](assets/images/wiref.jpeg)
 
 ## Features 
 
@@ -86,38 +84,40 @@ The font used in my stylesheet for various elements is primarily 'Comic Sans MS'
 
 Instead of adding extra pages, modals are utilized to provide a smoother and more intuitive user experience, keeping everything in one place.
 
-- __Welcome page__
+#### Welcome page
 
   - This is the main landing page. It contains the heading, Start Quiz button, the welcome message, Home Button, the copyright and quiz tables (Progress, Timer, Score).
   - The quiz begins with a friendly Welcome Page that greets the user and sets the tone for the game.
 
-  - **Home Button** 
+  ![Home Button](assets/images/landingp.png)
+
+##### Home Button
 
    - A Home button is included in the quiz interface, allowing users to return to the main screen at any point during the game. 
    - This improves navigation and provides users with an easy way to restart or choose a different difficulty level.
 
   ![Home Button](assets/images/HB.png)
 
-  - **Heading** 
+##### Heading
 
   - A prominent heading displaying the quiz title is included at the top of the quiz. This provides a clear and consistent context throughout the game, making it visually appealing.
 
   ![Heading](assets/images/titlee.png)
 
-  - **Tables** 
+##### Tables 
 
   - The quiz features a progress tracker that displays the current and total question numbers to help players monitor their progress, along with a dynamically updated scoreboard where players earn points for correct answers. The tables are disabled on the welcome page. They are presented throughtout the quiz.
   The quiz contais ten questions per level. The timer counts down from 30 seconds. 
   
 ![Tables](assets/images/tables.png)
 
-- **Welcome message** 
+##### Welcome message 
 
 - A friendly and engaging welcome message greets users upon landing on the quiz page. It introduces the game and invites them to begin, setting a positive tone for the quiz experience.
 
 ![Welcome message](assets/images/welcome%20message.png)
 
-- **Start Quiz Button** 
+##### Start Quiz Button
 
 - A clearly visible and user-friendly "Start Quiz" button initiates the quiz experience. 
 - It becomes active once the user reads the instructions, ensuring they are informed before beginning the game. It changes the color when hovered over. The button zooms in when hovered.
@@ -125,13 +125,13 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 ![Start Quiz Button](assets/images/SQ.png)
 ![Hover](assets/images/SQ%20hover.png)
 
-- **Footer** 
+##### Footer
 
-- I included the copyright message at the bottom of the page, which remains visible at all times.
+- I included the name of the project founder at the bottom of the page, which remains visible at all times.
 
 ![Footer](assets/images/footer.png)
 
-- __Difficulty levels modal__
+#### Difficulty levels modal
 
   - Beside the Home Button, copyright message and Progress, Timer and Score Tables, it includes the buttons for Easy, Medium and Hard levels, where users can choose the difficulty level before the game starts. Each level contains ten questions, and they are shuffled every time, so the quiz never starts with the same question.
   - There is also a text message providing clear instructions for users to choose their level.
@@ -139,20 +139,21 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
   
 ![Difficulty level modal](assets/images/Levels.png)
 
-- **Text message** 
+##### Text message 
 
 - The text implies that there are multiple levels of difficulty available, and the user needs to pick up one according to their preference.
 
 ![Text message](assets/images/difficulty%20level%20text.png)
 
-- **Difficulty Level Buttons** 
+##### Difficulty Level Buttons
+
 - There are tree buttons for: Easy, Medium and Hard level.
 - The buttons change the color when hovered over.
 - The buttons zoom in when hovered.
 
 ![Level buttons](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
 
-- __Game Instructions modal__
+#### Game Instructions modal
 
   - The Quiz Instructions section will guide users through the gameplay, ensuring they understand the rules and how to maximize their chances of success:
   - Time Limit: Users will learn that they have 30 seconds to answer each question, and the timer will begin as soon as the question appears. This will help them manage their time efficiently.
@@ -164,16 +165,16 @@ Instead of adding extra pages, modals are utilized to provide a smoother and mor
 
 This section is designed to ensure users understand how to play the quiz effectively while motivating them to do their best with clear guidance and exciting rewards.
 
-![Instructions](assets/images/Game-instructions.png)
+![Instructions](assets/images/game)
 
-- **Let's go Button**
+##### Let's go Button
 
 - The modal contains Let's go Button, which leads to quiz questions.
 - It confirms that the user understands the instructions and is ready to begin the quiz.
 
 ![Let's go Button](assets/images/lets-go.png)
 
-- __Quiz Questions modal__
+#### Quiz Questions modal
 
   - The quiz content dynamically displays the current question along with multiple answer options for the user to select from.
   - Users can choose the correct answer from the available options, making the quiz engaging and interactive.
@@ -181,70 +182,88 @@ This section is designed to ensure users understand how to play the quiz effecti
 
 ![Questions](assets/images/Questions.png) 
 
-- **Tables**
+##### Tables
 
 - This ensures users are aware of the time pressure, their current progress, and their score throughout the quiz.
 
-- Timer: A countdown timer is displayed for each question. Users have a limited time to answer (e.g., 30 seconds per question). The timer starts as soon as the question appears and automatically skips the question if time runs out.
-- Question Count: The quiz tracks and displays the number of questions answered, so users can see their progress throughout the quiz.
-- Scoring Table: The score is tracked and updated as the user answers each question. Points are awarded based on correct answers, with higher scores given for quicker responses. Users can keep track of their total score as they progress through the game.
+- **Timer**: A countdown timer is displayed for each question. Users have a limited time to answer (e.g., 30 seconds per question). The timer starts as soon as the question appears and automatically skips the question if time runs out.
+- **Question Count**: The quiz tracks and displays the number of questions answered, so users can see their progress throughout the quiz.
+- **Scoring Table**: The score is tracked and updated as the user answers each question. Points are awarded based on correct answers, with higher scores given for quicker responses. Users can keep track of their total score as they progress through the game.
 
 - **Submit Button**
 
 - A Submit Answer Button is provided for users to submit their selected answer. This action triggers the validation and moves the quiz forward.
 - The Submit Answer Button includes a bounce and hover effect to enhance the user experience. These animations make the interface feel more dynamic and intuitive, encouraging users to interact with confidence.
+- - The **Submit** button is disabled when the popup appears.
 
 ![Submit Button](assets/images/submit.png)
 ![Submit Button Hover](assets/images/bounce.png) 
 
-- **Error Popup**
+##### Error Popup
 
 - An error popup is shown if the user attempts to submit an answer without selecting one. This ensures users are reminded to make a choice before proceeding.
 
 ![Error popup](assets/images/errorpopup.png)
 
-- **50/50 Button**
+##### 50/50 Button
+
 - The game includes a "50/50" button that users can use once per level. When activated, it eliminates two incorrect answers, increasing the chances of selecting the correct one. This adds a strategic element to the quiz and supports users who are unsure of the answer.
 - It can be used only once per level.
 
-![Error popup](assets/images/50:50.png)
+![Fifty](assets/images/50:50.png)
 
-- **Timer Popup**
+##### Timer Popup
+
 - If the user does not select an answer within 30 seconds, the quiz moves to the next question. Before that, a Timer popup appears, visually displaying all answer options—the correct answer highlighted in green, and the incorrect ones in red. 
 - This gives immediate feedback and helps the user learn from their mistakes.
-- When a popup appears (e.g., for a correct, incorrect, or time's up message), the timer in the background is automatically paused. - This ensures that users are not rushed while reviewing feedback or preparing to move on to the next question.
+- When a popup appears (e.g., for a correct, incorrect, or time's up message), the timer in the background is automatically paused. This ensures that users are not rushed while reviewing feedback or preparing to move on to the next question.
+- When the time runs out, a popup appears to notify the user that the time is up.
+- Incorrect answers are highlighted in red, while the correct answer is shown in green for instant feedback.
 
-- **Wrong/Correct Answer Popup**
+![Timer popup](assets/images/Time%20is%20up.png)
+
+##### Wrong/Correct Answer Popup
+
 - If the user selects the wrong answer, a popup will appear displaying a "Wrong" message. The selected (incorrect) answer is highlighted in red, while the correct answer is shown in green to provide immediate feedback and help with learning.
 
-![Error popup](assets/images/wron.png)
+![Wrong/Correct](assets/images/wron.png)
 
-- **Next Button**
+##### Next Button
+
 - After each question—whether answered correctly, incorrectly, or skipped due to time running out—a "Next" button appears in the popup. This allows the user to move forward at their own pace, maintaining control over the quiz flow even when the timer has expired.
 
-![Error popup](assets/images/Popup.png)
+![Next Button](assets/images/Popup.png)
 
-- **Selected Question**
+##### Selected Question
+
 - When a user selects an answer, it is highlighted in orange to clearly indicate their current choice before submitting. 
 - This improves clarity and enhances user experience by making interactions more intuitive
 
-![Error popup](assets/images/selectedq.png)
-- __The Certificate__ 
+![Selected](assets/images/selectedq.png)
 
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
+#### The Certificate
 
-![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
+  - Upon completing the quiz, players receive a **certificate** summarizing their performance, including the number of correct answers and total points scored.
+  - It encourages replayability and helps track improvement over time.
 
-- __Footer__
+![Certificate](assets/images/certificate.png)
+
+#### Play Again Button
+
+- It allows users to restart the quiz immediately after finishing, encouraging repeated practice and learning without having to refresh or navigate away from the page.
+- The button changes its green color to lime green when hovered over.
+
+![Play Again Button](assets/images/Screenshot%202025-04-22%20at%2021.21.21.png)
+![Play Again Button Hover](assets/images/Screenshot%202025-04-22%20at%2021.22.27.png)
+
+#### Footer
+
 -The footer is included at the bottom of the game interface and contains a credit line: “Created by Naida,” giving recognition to the project creator.
 
-![Gallery](assets/images/footer.png)
+![Footer](assets/images/footer.png)
 
-- __Favicon__
+#### Favicon
 - The webpage includes a custom favicon featuring a bee icon and the title “Spelling Bee” displayed in the browser tab, adding a polished and thematic touch to the game.
-
-![Sign Up](assets/images/Faviconn.png)
 
 ## Features Left to Implement
 
@@ -264,12 +283,110 @@ This section is designed to ensure users understand how to play the quiz effecti
 
 - HTML
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/#textarea)
+
+![HTML](assets/images/html.png)
+
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+  ![CSS](assets/images/Css.png)
+
   - Java Script
    - No errors where found when passing through the official [(jshint) validator] 
-- Am I Responsive?
+
+- Responsively App
    - Used to test how my website looks and behaves on different screen sizes and devices. 
+
+## Functionality testing
+
+This interactive spelling quiz game is designed to test and improve spelling skills across three difficulty levels: Easy, Medium, and Hard. Below is a breakdown of how the game works and what users can expect at each step:
+
+### Game Flow & Rules
+
+**Home Page (Start Screen)**
+
+- The game begins on the Start Quiz page.
+- Click the "Start Quiz" button to proceed to difficulty selection.
+
+**Difficulty Selection**
+
+- Choose from Easy, Medium, or Hard.
+- Each level has its own set of 10 spelling questions.
+
+Clicking a difficulty:
+- Plays a sound.
+- Loads the quiz area.
+- Displays instructions via the instruction overlay.
+
+**Instruction Overlay**
+
+- Shows up after selecting difficulty.
+- Click "Let's go" to begin.
+
+**Quiz Rules**
+
+- Each question has one correct spelling out of four options.
+- A 30-second countdown timer starts for every question.
+- If time runs out, the correct answer is revealed automatically.
+
+**Answering Questions**
+
+- Click an answer option (button).
+- The correct answer will be highlighted in green.
+- Incorrect selections will be highlighted in red.
+- A popup message will appear: "Correct!" or "Wrong!".
+- Score is updated accordingly.
+
+**Submit Button**
+
+- Use this to lock in your selected answer.
+- Becomes disabled after each question is answered.
+
+**Next Button**
+
+- Moves the user to the next question.
+- Appears after answering.
+
+**50/50 Lifeline**
+- Each level offers a single-use 50/50 lifeline.
+- Removes two incorrect answers.
+- Button becomes disabled and labeled "Used" after activation.
+
+**Timer**
+
+- Displays remaining time in MM:SS format.
+- If it reaches 0, the game shows the correct answer and ends the question.
+
+**Game End**
+
+- After answering all questions, a certificate popup congratulates the player.
+
+**Home Button**
+
+- Resets the entire game.
+- Takes you back to the start page.
+- Resets score, questions, and timer.
+
+**Button Effects**
+
+- All buttons include click sound effects for user feedback, except from Submit Button, which has the hover and bounce for user feedback.
+- Hovering over buttons adds a visual effect (e.g. background change or zoom-in) to show interactivity.
+- Buttons that are not usable (like 50/50 after use or Submit after answering) are automatically disabled to avoid confusion.
+
+**Zoom-In Effects & Hover Interactions**
+
+- Hover Effects:
+Quiz answer options use hover states for better user experience.
+Hovering highlights the button to show it’s clickable.
+- Zoom-In Animations:
+When you hover over interactive elements (e.g. answer buttons, lifeline, start button), they slightly zoom in to draw user attention.
+- This animation provides a more dynamic and modern interface feel.
+
+**Responsiveness**
+
+- The quiz layout is fully responsive:
+- Works across devices (mobile, tablet, desktop).
+- Uses media queries to adjust layout and font sizes.
 
 ### Performance 
 
@@ -334,7 +451,6 @@ The live link can be found here - https://code-institute-org.github.io/love-runn
   - Log in (or sign up) to Github.
   - Go to the repository for this project, DavidRC-Projects/Joint-Effort.
   - Click the Fork button in the top right corner.
-
 
 ### How to clone
 

@@ -11,39 +11,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-size: cover; 
+  background-size: cover;
   overflow-x: hidden;
   font-family: "Comic Sans MS", "Trebuchet MS", cursive;
   color: #3a3a3a;
   text-align: center;
 }
-
-
-/* Add this to your CSS file */
-/* Disable hover and bounce effect when a question is answered */
-#submitAnswer.no-hover {
-  pointer-events: none;
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
-  background-color: darkslategrey; /* behåller grundstilen */
-  color: #ffcc00;
-  cursor: default;
-
-}
-
-#submitAnswer.no-hover:hover {
-  
-  cursor: default;
-  color: #ffcc00;
-  background-color: darkslategrey;
-  transform: none;
-
-}
-
-
-
-
 
 main {
   flex: 1;
@@ -74,8 +47,8 @@ table {
   background-color: rgba(184, 134, 11, 0.9);
   text-align: center;
   font-size: 18px;
-  border-radius: 30px; 
-  border: 2px solid #b8860b; 
+  border-radius: 30px;
+  border: 2px solid #b8860b;
 }
 
 /* Padding for table cells */
@@ -132,7 +105,7 @@ td {
   position: relative;
   background-color: #ffff99;
   box-sizing: border-box;
-  border: 2px solid #b8860b; 
+  border: 2px solid #b8860b;
   border-radius: 50px;
   width: 80%;
   height: 55vh;
@@ -153,29 +126,29 @@ td {
 }
 
 .quiz-area h2 {
-  margin-bottom: 50px; 
+  margin-bottom: 50px;
 }
 
 /* Quiz options set as a grid with two columns, spacing, and custom margins. */
 .quiz-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-content: center;
-  max-width: 400px; 
+  max-width: 400px;
   margin-left: -30px;
   margin-top: 30px;
 }
 
 /* Style the quiz box with a yellow background, border, shadow, and hover effect. */
 .quiz-box {
-  width: 300px; 
-  height: 70px; 
-  font-size: 20px; 
+  width: 300px;
+  height: 70px;
+  font-size: 20px;
   border-radius: 20px;
   font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-  border: 2px solid #b8860b; 
-  background-color: #ffd700; 
+  border: 2px solid #b8860b;
+  background-color: #ffd700;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
   color: black;
   cursor: pointer;
@@ -202,10 +175,10 @@ td {
 /* Center the quiz container with space between elements and a max width. */
 .quiz-container {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  gap: 40px; 
-  max-width: 600px; 
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 600px;
   margin: auto;
 }
 
@@ -215,13 +188,13 @@ td {
 
 /* Style correct answers in green and wrong answers in red with white text. */
 .correct-answer {
-  background-color: #28a745 !important; 
+  background-color: #28a745 !important;
   color: white;
   border: 2px solid #218838;
 }
 
 .wrong-answer {
-  background-color: #dc3545 !important; 
+  background-color: #dc3545 !important;
   color: white;
   border: 2px solid #c82333;
 }
@@ -272,18 +245,31 @@ td {
   }
 }
 
+/* Disable hover and bounce effect when a question is answered */
+#submitAnswer.no-hover {
+  pointer-events: none;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  background-color: darkslategrey;
+  color: #ffcc00;
+  cursor: default;
+}
 
-.startQuiz {
-  display: none;
+#submitAnswer.no-hover:hover {
+  cursor: default;
+  color: #ffcc00;
+  background-color: darkslategrey;
+  transform: none;
 }
 
 /* Hide difficulty selection initially, centers the content, and styles difficulty buttons with hover effects. */
 #difficulty-selection {
   display: none;
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
-  height: 100vh; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   margin: 60px auto;
 }
 
@@ -292,48 +278,52 @@ td {
 }
 
 .difficulty-btn {
-  width: 200px; 
-  height: 50px; 
+  width: 200px;
+  height: 50px;
   font-size: 18px;
-  border: 2px solid #b8860b; 
-  background-color: #ffd700; 
+  border: 2px solid #b8860b;
+  background-color: #ffd700;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   transition: 0.3s;
   font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-  margin: 20px 110px; 
+  margin: 20px 110px;
   display: block;
-  text-align: center; 
+  text-align: center;
   border-radius: 20px;
 }
 
 .difficulty-btn:hover {
   background-color: #e6b800;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 /* Start Quiz Button Styling */
 #start-quiz {
   margin-top: 150px;
-  font-family: "Comic Sans MS", cursive; 
+  font-family: "Comic Sans MS", cursive;
 }
 
 #startQuiz {
-  margin-top: 40px; 
+  margin-top: 40px;
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
   border: 2px solid #b8860b;
-  background-color: #ffd700; 
+  background-color: #ffd700;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
   font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-  transform: scale(1.1); 
+  transform: scale(1.1);
   border-radius: 20px;
 }
 
 #startQuiz:hover {
   background-color: #e6b800;
-  transform: scale(1.1); 
+  transform: scale(1.1);
+}
+
+.startQuiz {
+  display: none;
 }
 
 /* Home Button and Hover */
@@ -345,14 +335,14 @@ td {
   left: 20px;
   background: none;
   border: none;
-  font-size: 32px; 
-  color: #333; 
+  font-size: 32px;
+  color: #333;
   cursor: pointer;
 }
 
 #homeButton:hover {
-  color: #555; 
-  transform: scale(1.1); 
+  color: #555;
+  transform: scale(1.1);
 }
 
 /* Wrong or correct answer popup */
@@ -365,11 +355,7 @@ td {
   width: 300px;
   height: 200px;
   background: -o-linear-gradient(45deg, #f9a602, #3e2a47);
-  background: linear-gradient(
-    45deg,
-    #f9a602,
-    #3e2a47
-  ); 
+  background: linear-gradient(45deg, #f9a602, #3e2a47);
   color: black;
   border-radius: 20px;
   z-index: 9999;
@@ -380,7 +366,7 @@ td {
   font-family: "Comic Sans MS", "Trebuchet MS", cursive;
   animation: popup-fade 0.5s ease-out, popup-scale 0.3s ease-in-out;
   transition: transform 0.2s ease-in-out;
-  border: 2px solid #b8860b; 
+  border: 2px solid #b8860b;
 }
 
 /* Create a static bee body with animated wings using keyframes and pseudo-elements. */
@@ -420,7 +406,7 @@ td {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  animation: fly-wings 1s ease-in-out infinite; 
+  animation: fly-wings 1s ease-in-out infinite;
 }
 
 .bee-shape::before {
@@ -435,7 +421,7 @@ td {
 
 /* Wrong or correct answer popup text styling */
 #popup-message {
-  margin-top: 110px; 
+  margin-top: 110px;
   position: absolute;
   display: inline;
   left: 50%;
@@ -468,7 +454,7 @@ td {
 
 #nextButton:hover {
   background-color: #4f5f6e;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 /* Center the start screen with vertical alignment, gap, and custom positioning. */
@@ -478,9 +464,9 @@ td {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  margin-top: 20px; 
+  margin-top: 20px;
   position: relative;
-  top: -20px; /
+  top: -20px;
 }
 
 /* 50/50 Button style and hover */
@@ -500,9 +486,9 @@ td {
   transform: scale(1.1);
 }
 #fiftyFiftyButton:disabled {
-  pointer-events: none; 
+  pointer-events: none;
   transform: none;
-  cursor: not-allowed; 
+  cursor: not-allowed;
   background-color: #555;
 }
 
@@ -552,7 +538,7 @@ td {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); 
+  background-color: rgba(0, 0, 0, 0.7);
   display: none;
   justify-content: center;
   align-items: center;
@@ -642,12 +628,12 @@ td {
 
 #play-again-btn:hover {
   background-color: greenyellow;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 #close-certificate-btn:hover {
   background-color: greenyellow;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 /* Footer */

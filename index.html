@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Meta tags for search engines -->
-    <meta name="description" content="Challenge your spelling skills with a fun and interactive spelling bee quiz. Choose difficulty levels, earn points, and receive a certificate!" >
-    <meta name="keywords" content="spelling game, words, game, spell" />
+    <meta name="description" content="Challenge your spelling skills with a fun and interactive spelling bee quiz. Choose difficulty levels, earn points, and receive a certificate!">
+    <meta name="keywords" content="spelling game, words, game, spell">
 
     <!-- Font awesome and google fonts -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous">
     <link
       href="https://fonts.googleapis.com/css?family=Raleway%7CRighteous"
-      rel="stylesheet"
-    />
+      rel="stylesheet">
 
     <!-- Link to external CSS stylesheet for styling the quiz -->
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
     <!--Title -->
     <title>Spelling Bee</title>
-
   </head>
 
   <body>
+
+    <!-- Header with the heading and logo image-->
     <header>
       <h1 class="heading">
-        <img class="logo" src="assets/images/logo1.png" alt="logo" /> Spelling
+        <img class="logo" src="assets/images/logo1.png" alt="logo"> Spelling
         Bee
       </h1>
 
       <div class="game">
-
         <!-- Progress Table -->
         <table class="blue">
           <tr>
@@ -79,15 +77,13 @@
           </div>
           <button id="nextButton">Next</button>
         </div>
-   
-
 
         <!-- Home button -->
         <button id="homeButton" class="home-btn" aria-label="Go to homepage">
           <i class="fas fa-home"></i>
         </button>
 
-        <!-- Start screen with welcome message and 'Start Quiz' button -->
+        <!-- Start screen -->
         <div id="start-quiz">
           <h2>Welcome to the Spelling Bee Quiz!</h2>
           <button id="startQuiz">Start Quiz</button>
@@ -131,7 +127,7 @@
             <!-- Certificate and play again button/end of quiz-->
             <div id="certificate-popup">
               <div id="certificate-message"></div>
-                 <button id="play-again-btn">Play again</button>
+              <button id="play-again-btn">Play again</button>
             </div>
             <div class="overlayy"></div>
           </div>
@@ -139,7 +135,7 @@
       </div>
 
       <!-- Sound toggle icon -->
-     <audio
+      <audio
         id="click-sound"
         src="assets/audio/click-234708.mp3"
         preload="auto"
@@ -162,7 +158,7 @@
           <p>
             🕒 You have 30 seconds to answer each question. The timer starts
             counting down as soon as the question appears. If time runs out, the
-            question will automatically be skipped and the next one will load.
+            question will be skipped and the next one will load.
           </p>
           <p>
             🔍 Use the "50/50" button once per level to eliminate two wrong
@@ -196,7 +192,7 @@
         <p>© Created by Naida Hadzic.</p>
       </div>
     </footer>
-    
+
     <!-- Link to external JavaScript file for quiz functionality -->
     <script src="assets/js/script.js"></script>
   </body>
