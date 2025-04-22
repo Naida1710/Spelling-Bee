@@ -282,21 +282,21 @@ document.addEventListener("DOMContentLoaded", () => {
     submitButton.disabled = true;
     // Reset styles for all answer buttons before highlighting correct/incorrect ones
     answerButtons.forEach((button) => {
-      button.style.backgroundColor = ""; // Reset background color
-      button.style.color = ""; // Reset text color
-      button.disabled = true; // Disable all buttons after an answer is selected
+      button.style.backgroundColor = ""; 
+      button.style.color = ""; 
+      button.disabled = true; 
     });
 
     // Highlight the correct answer in green
     answerButtons.forEach((button) => {
       if (button.innerText === correctAnswer) {
-        button.style.backgroundColor = "#4CAF50"; // Green for correct
+        button.style.backgroundColor = "#4CAF50"; 
         button.style.color = "white";
       }
     });
     // If the selected answer is incorrect, highlight it in red
     if (!isCorrect && selectedAnswerButton) {
-      selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
+      selectedAnswerButton.style.backgroundColor = "#f44336"; 
       selectedAnswerButton.style.color = "white";
     }
 
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Correct Answer: ", correctAnswer);
     // Reset all buttons' styles and disable them
     answerButtons.forEach((button) => {
-      button.disabled = true; // Disable all buttons after selection
+      button.disabled = true; 
       button.style.backgroundColor = "";
       button.style.color = "";
     });
@@ -507,13 +507,13 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("No answer selected, showing error popup");
   
     errorPopup.innerText = "Please select an answer first!";
-    errorPopup.style.display = "block";           // ➕ visa popup
-    errorPopup.classList.add("show");             // ➕ visa med fade/opacity
+    errorPopup.style.display = "block";           
+    errorPopup.classList.add("show");             
   
     setTimeout(() => {
-      errorPopup.classList.remove("show");        // ➖ ta bort effekten
-      errorPopup.style.display = "none";          // ➖ göm popup igen
-    }, 500); // Du kan ändra till 1000 om du vill att den försvinner snabbare
+      errorPopup.classList.remove("show");       
+      errorPopup.style.display = "none";          
+    }, 500); 
   }
   // Handle the "Next" button click to load the next question or show the results
   nextQuestionButton.addEventListener("click", () => {
@@ -547,8 +547,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
       submitButton.disabled = true;
-      submitButton.style.pointerEvents = "none"; // Prevent hover effects
-      submitButton.style.animation = "none"; // Remove any animations like bounce
+      submitButton.style.pointerEvents = "none"; 
+      submitButton.style.animation = "none"; 
       popupMessage.textContent = "Time's up!";
       popup.style.display = "block";
       nextQuestionButton.textContent = "Next";

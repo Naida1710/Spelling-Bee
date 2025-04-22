@@ -401,7 +401,7 @@ When you hover over interactive elements (e.g. answer buttons, lifeline, start b
 
 ### Performing test on various devices
 
-- The website was tested on multiple devices using the browser's inspect tool to emulate different screen sizes and resolutions:
+The website was tested on multiple devices using the browser's inspect tool to emulate different screen sizes and resolutions:
  - iPhone SE
  - iPhone XR
  - iPhone 12 Pro
@@ -416,7 +416,7 @@ When you hover over interactive elements (e.g. answer buttons, lifeline, start b
  - Nest Hub Max
  - galaxy fold
 
- - The responsiveness of the website has been tested on available phones in my surroundings to ensure proper display on different devices:
+The responsiveness of the website has been tested on available phones in my surroundings to ensure proper display on different devices:
 - iPhone 15 Pro Max
 - iPhone 15 Pro 
 - Samsung Galaxy A4
