@@ -447,24 +447,24 @@ The responsiveness of the website has been tested on available phones in my surr
   - From the source section drop-down menu, select the Master Branch
   - Once the master branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment. 
 
-The live link can be found here - https://code-institute-org.github.io/love-running-2.0/index.html 
+The live link can be found here - https://naida1710.github.io/Spelling-Bee/
 
 ### Forking the GitHub Repository
 
 - To fork the repository:
 
   - Log in (or sign up) to Github.
-  - Go to the repository for this project, DavidRC-Projects/Joint-Effort.
+  - Go to the repository for this project.
   - Click the Fork button in the top right corner.
 
 ### How to clone
 
  - Log in to Github.
- - Go to the repository for this project, DavidRC-Projects/Joint-Effort.
+ - Go to the repository for this project, Naida1710-Projects/Joint-Effort.
  - click on the Code button above the file list
  - Select HTTPS button to clone with and copy the link shown.
  - Open the terminal in your code editor and navigate to the folder where you want to clone the repository.
- - Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+ - Type git clone and paste the URL from the clipboard ($ git clone https://github.com/Naida1710/Spelling-Bee.git)
  - Press Enter
 
 
