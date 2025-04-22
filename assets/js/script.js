@@ -305,6 +305,9 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
       selectedAnswerButton.style.color = "white";
     }
+    
+     
+
   
     // Show popup with the result message
     popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
@@ -449,6 +452,7 @@ function highlightCorrectAndWrongAnswers() {
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
   
     quizOptionsContainer.innerHTML = ""; // Clear previous answers
+    quizOptionsContainer.classList.remove("answered"); // Re-enable hover/bounce effects for new question
     document.getElementById("quiz-question-text").textContent = currentQuestion.question;
   
     currentQuestion.answers.forEach((answer) => {
@@ -525,6 +529,8 @@ function highlightCorrectAndWrongAnswers() {
 
   // Handle the "Next" button click to load the next question or show the results
   nextQuestionButton.addEventListener("click", () => {
+    submitButton.classList.remove("no-hover");
+    submitButton.disabled = false;
     clickSound.currentTime = 0;
     clickSound.play();
     popup.style.display = "none";
@@ -621,6 +627,11 @@ function highlightCorrectAndWrongAnswers() {
       wrongSound.play();
       popupMessage.textContent = "Wrong!";
     }
+    submitButton.classList.add("no-hover");
+    submitButton.disabled = true; // 
     popup.style.display = "block";
+
+    
   }
+
 });

@@ -20,6 +20,19 @@ body {
 
 
 /* Add this to your CSS file */
+/* Disable hover and bounce effect when a question is answered */
+.no-hover {
+  pointer-events: none;
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+#submitAnswer.no-hover:hover {
+  background-color: inherit; /* or same as default */
+  cursor: default;
+}
+
 
 
 
@@ -168,6 +181,8 @@ td {
 
 .quiz-box:hover {
   background-color: #e5c100;
+  transform: scale(1.05);
+  animation: bounce 0.3s;
 }
 
 /* Select a quiz box to change the color to orange */
