@@ -299,10 +299,22 @@ document.addEventListener("DOMContentLoaded", () => {
       selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
       selectedAnswerButton.style.color = "white";
     }
-    // Show popup with the result message
-    popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
-    popup.style.display = "block";
+
+     // ✅ Play sound effect
+     const correctSound = document.getElementById("correct-sound");
+     const wrongSound = document.getElementById("wrong-sound");
+     if (isCorrect) {
+       correctSound.play();
+       popupMessage.textContent = "Correct!";
+     } else {
+       wrongSound.play();
+       popupMessage.textContent = "Wrong!";
+     }
+     submitButton.classList.add("no-hover");
+     submitButton.disabled = true; //
+     popup.style.display = "block";
   }
+   
 
   // Highlights the correct and incorrect answers after the user selects an answer
   function highlightCorrectAndWrongAnswers() {
@@ -460,46 +472,49 @@ document.addEventListener("DOMContentLoaded", () => {
     startTimer();
   }
 
-  // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
-    submitButton.disabled = true;
+    // Hämta den valda svarsknappen
     selectedAnswerButton = document.querySelector(".quiz-box.selected");
-    // Check if no answer is selected
+  
+    // 🔴 Om inget svar är valt – visa felpopup och stoppa funktionen
     if (!selectedAnswerButton) {
-      errorPopup.style.display = "block";
+      showErrorPopup();
       return;
-    } else {
-      clearInterval(timer);
-      const currentQuestion = questions[currentLevel][currentQuestionIndex];
-      const correctAnswer = currentQuestion.correct;
-      // Compare the selected answer to the correct one
-      if (selectedAnswerButton.innerText === correctAnswer) {
-        score++;
-        document.getElementById("score").textContent = score;
-        showAnswerPopup(true);
-      } else {
-        showAnswerPopup(false);
-      }
-      // Show the next question or results
-      nextQuestionButton.style.display = "block";
-      if (currentQuestionIndex === questions[currentLevel].length - 1) {
-        nextQuestionButton.textContent = "Results"; // On last question, show "Results"
-      } else {
-        nextQuestionButton.textContent = "Next"; // Otherwise, show "Next"
-      }
     }
+  
+    // ✅ Om svar är valt – fortsätt
+    submitButton.disabled = true;
+    clearInterval(timer);
+  
+    const currentQuestion = questions[currentLevel][currentQuestionIndex];
+    const correctAnswer = currentQuestion.correct;
+  
+    if (selectedAnswerButton.innerText === correctAnswer) {
+      score++;
+      document.getElementById("score").textContent = score;
+      showAnswerPopup(true);
+    } else {
+      showAnswerPopup(false);
+    }
+  
+    // Visa "Next" eller "Results" beroende på om det är sista frågan
+    nextQuestionButton.style.display = "block";
+    nextQuestionButton.textContent =
+      currentQuestionIndex === questions[currentLevel].length - 1 ? "Results" : "Next";
   });
-
   // Display an error popup if no answer is selected
   function showErrorPopup() {
     console.log("No answer selected, showing error popup");
-    errorPopup.innerText = "Please select an answer first.";
-    errorPopup.style.display = "block";
+  
+    errorPopup.innerText = "Please select an answer first!";
+    errorPopup.style.display = "block";           // ➕ visa popup
+    errorPopup.classList.add("show");             // ➕ visa med fade/opacity
+  
     setTimeout(() => {
-      errorPopup.style.display = "none";
-    }, 600);
+      errorPopup.classList.remove("show");        // ➖ ta bort effekten
+      errorPopup.style.display = "none";          // ➖ göm popup igen
+    }, 500); // Du kan ändra till 1000 om du vill att den försvinner snabbare
   }
-
   // Handle the "Next" button click to load the next question or show the results
   nextQuestionButton.addEventListener("click", () => {
     submitButton.classList.remove("no-hover");
@@ -547,6 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
     certificatePopup.classList.add("show");
     overlayy.style.display = "block";
     certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`;
+
   }
   document.getElementById("play-again-btn").addEventListener("click", () => {
     clickSound.currentTime = 0;
@@ -565,35 +581,4 @@ document.addEventListener("DOMContentLoaded", () => {
     timerElement.textContent = formatTime(countdownTime);
   });
 
-  // Display the answer popup and highlights correct and incorrect answers
-  function showAnswerPopup(isCorrect) {
-    const currentQuestion = questions[currentLevel][currentQuestionIndex];
-    const correctAnswer = currentQuestion.correct;
-    const answerButtons = document.querySelectorAll(".quiz-box");
-    answerButtons.forEach((button) => {
-      button.disabled = true;
-      if (button.innerText === correctAnswer) {
-        button.style.backgroundColor = "#4CAF50";
-        button.style.color = "white";
-      }
-    });
-    if (!isCorrect && selectedAnswerButton) {
-      selectedAnswerButton.style.backgroundColor = "#f44336";
-      selectedAnswerButton.style.color = "white";
-    }
-
-    // ✅ Play sound effect
-    const correctSound = document.getElementById("correct-sound");
-    const wrongSound = document.getElementById("wrong-sound");
-    if (isCorrect) {
-      correctSound.play();
-      popupMessage.textContent = "Correct!";
-    } else {
-      wrongSound.play();
-      popupMessage.textContent = "Wrong!";
-    }
-    submitButton.classList.add("no-hover");
-    submitButton.disabled = true; //
-    popup.style.display = "block";
-  }
 });

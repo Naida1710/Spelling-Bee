@@ -289,10 +289,12 @@ This section is designed to ensure users understand how to play the quiz effecti
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
 
-  ![CSS](assets/images/Css.png)
+  ![CSS](assets/images/Screenshot%202025-04-21%20at%2015.30.11.png)
 
   - Java Script
    - No errors where found when passing through the official [(jshint) validator] 
+
+  ![Java](assets/images/Css.png)
 
 - Responsively App
    - Used to test how my website looks and behaves on different screen sizes and devices. 
@@ -341,6 +343,7 @@ Clicking a difficulty:
 
 - Use this to lock in your selected answer.
 - Becomes disabled after each question is answered.
+- Cloud pop up jumps out of the button if you click Submit befire selecting the answers with a message to select an answer first, with Submit following.
 
 **Next Button**
 
@@ -359,7 +362,7 @@ Clicking a difficulty:
 
 **Game End**
 
-- After answering all questions, a certificate popup congratulates the player.
+- After answering all questions, a certificate popup shows the score to the player.
 
 **Home Button**
 
