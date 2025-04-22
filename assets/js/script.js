@@ -20,8 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const certificateMessage = document.getElementById("certificate-message");
   const clickSound = new Audio("assets/audio/click-234708.mp3");
   const overlayy = document.querySelector(".overlayy");
- 
-
 
   // Set initial game values
   let currentQuestionIndex = 0;
@@ -31,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let timer;
   let usedFiftyFiftyForLevel = false;
   let selectedAnswerButton = null;
-  
 
   // List of spelling quiz questions organized by difficulty level
   const questions = {
@@ -218,11 +215,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Start quiz button: play sound and show difficulty selection
   startQuizButton.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent form submission
-      clickSound.currentTime = 0;
-      clickSound.play();
-      startQuizSection.style.display = "none";
-      difficultySelection.style.display = "block";
+    event.preventDefault(); // Prevent form submission
+    clickSound.currentTime = 0;
+    clickSound.play();
+    startQuizSection.style.display = "none";
+    difficultySelection.style.display = "block";
   });
 
   // Start Quiz Now button click, sound, hidden instruction overlay
@@ -259,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .padStart(2, "0");
     const secs = (seconds % 60).toString().padStart(2, "0");
     return `${mins}:${secs}`;
-
   }
 
   // Start a countdown timer, updates the timer display every second,
@@ -291,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
       button.style.color = ""; // Reset text color
       button.disabled = true; // Disable all buttons after an answer is selected
     });
-  
+
     // Highlight the correct answer in green
     answerButtons.forEach((button) => {
       if (button.innerText === correctAnswer) {
@@ -299,59 +295,56 @@ document.addEventListener("DOMContentLoaded", () => {
         button.style.color = "white";
       }
     });
-  
+
     // If the selected answer is incorrect, highlight it in red
     if (!isCorrect && selectedAnswerButton) {
       selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
       selectedAnswerButton.style.color = "white";
     }
-    
-     
-
-  
+   
     // Show popup with the result message
     popupMessage.textContent = isCorrect ? "Correct!" : "Wrong!";
     popup.style.display = "block";
-   
   }
- 
-  
 
   // Highlights the correct and incorrect answers after the user selects an answer
-function highlightCorrectAndWrongAnswers() {
-  const currentQuestion = questions[currentLevel][currentQuestionIndex];
-  const correctAnswer = currentQuestion.correct;
-  const answerButtons = document.querySelectorAll(".quiz-box");
+  function highlightCorrectAndWrongAnswers() {
+    const currentQuestion = questions[currentLevel][currentQuestionIndex];
+    const correctAnswer = currentQuestion.correct;
+    const answerButtons = document.querySelectorAll(".quiz-box");
 
-  // Log the correct answer for debugging
-  console.log("Correct Answer: ", correctAnswer);
+    // Log the correct answer for debugging
+    console.log("Correct Answer: ", correctAnswer);
 
-  // Reset all buttons' styles and disable them
-  answerButtons.forEach((button) => {
-    button.disabled = true; // Disable all buttons after selection
-    button.style.backgroundColor = ""; // Reset background color
-    button.style.color = ""; // Reset text color
-  });
+    // Reset all buttons' styles and disable them
+    answerButtons.forEach((button) => {
+      button.disabled = true; // Disable all buttons after selection
+      button.style.backgroundColor = ""; // Reset background color
+      button.style.color = ""; // Reset text color
+    });
 
-  // Loop through all the answer buttons
-  answerButtons.forEach((button) => {
-    console.log("Button Text: ", button.innerText); // Debugging to see the button text
+    // Loop through all the answer buttons
+    answerButtons.forEach((button) => {
+      console.log("Button Text: ", button.innerText); // Debugging to see the button text
 
-    // Check if the button text matches the correct answer
-    if (button.innerText.trim() === correctAnswer.trim()) {
-      console.log("Correct Answer Button Found!");
-      button.style.backgroundColor = "#4CAF50"; // Green for correct
-      button.style.color = "white";
+      // Check if the button text matches the correct answer
+      if (button.innerText.trim() === correctAnswer.trim()) {
+        console.log("Correct Answer Button Found!");
+        button.style.backgroundColor = "#4CAF50"; // Green for correct
+        button.style.color = "white";
+      }
+    });
+
+    // If the user selected an incorrect answer, highlight it in red
+    if (
+      selectedAnswerButton &&
+      selectedAnswerButton.innerText.trim() !== correctAnswer.trim()
+    ) {
+      console.log("Incorrect Answer Selected!");
+      selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
+      selectedAnswerButton.style.color = "white";
     }
-  });
-
-  // If the user selected an incorrect answer, highlight it in red
-  if (selectedAnswerButton && selectedAnswerButton.innerText.trim() !== correctAnswer.trim()) {
-    console.log("Incorrect Answer Selected!");
-    selectedAnswerButton.style.backgroundColor = "#f44336"; // Red for incorrect
-    selectedAnswerButton.style.color = "white";
   }
-}
 
   // Handle the 50/50 lifeline functionality
   fiftyFiftyButton.addEventListener("click", () => {
@@ -373,19 +366,19 @@ function highlightCorrectAndWrongAnswers() {
       const [incorrect1, incorrect2] =
         getRandomIncorrectAnswers(incorrectAnswers);
 
-        document.querySelectorAll(".quiz-box").forEach((button) => {
-          const buttonText = button.innerText.trim().toLowerCase();
-          const incorrect1Trimmed = incorrect1.trim().toLowerCase();
-          const incorrect2Trimmed = incorrect2.trim().toLowerCase();
-        
-          if (
-            buttonText === incorrect1Trimmed ||
-            buttonText === incorrect2Trimmed
-          ) {
-            button.style.visibility = "hidden";
-            button.disabled = true;
-          }
-        });
+      document.querySelectorAll(".quiz-box").forEach((button) => {
+        const buttonText = button.innerText.trim().toLowerCase();
+        const incorrect1Trimmed = incorrect1.trim().toLowerCase();
+        const incorrect2Trimmed = incorrect2.trim().toLowerCase();
+
+        if (
+          buttonText === incorrect1Trimmed ||
+          buttonText === incorrect2Trimmed
+        ) {
+          button.style.visibility = "hidden";
+          button.disabled = true;
+        }
+      });
     }
   });
 
@@ -414,18 +407,15 @@ function highlightCorrectAndWrongAnswers() {
     usedFiftyFiftyForLevel = false;
     resetFiftyFiftyButton();
     selectedAnswerButton = null;
-  
+
     // Reset button styles before shuffling questions
     const answerButtons = document.querySelectorAll(".quiz-box");
     answerButtons.forEach((button) => {
       button.style.backgroundColor = "";
       button.style.color = "";
-      button.disabled = false;  // Re-enable buttons
+      button.disabled = false; // Re-enable buttons
     });
-  
   }
-   
-
 
   // Reset the level-specific state, including 50/50 lifeline usage and button stat
   function resetLevel() {
@@ -450,26 +440,34 @@ function highlightCorrectAndWrongAnswers() {
   function loadQuestion() {
     console.log("Loading question...");
     const currentQuestion = questions[currentLevel][currentQuestionIndex];
-  
+
+    submitButton.disabled = false;
+    submitButton.style.pointerEvents = "auto";
+    submitButton.style.animation = "";
+    submitButton.classList.remove("no-hover"); 
     quizOptionsContainer.innerHTML = ""; // Clear previous answers
     quizOptionsContainer.classList.remove("answered"); // Re-enable hover/bounce effects for new question
-    document.getElementById("quiz-question-text").textContent = currentQuestion.question;
-  
+    document.getElementById("quiz-question-text").textContent =
+      currentQuestion.question;
+
     currentQuestion.answers.forEach((answer) => {
       const button = document.createElement("button");
       button.classList.add("quiz-box");
       button.innerText = answer;
-  
+
       button.addEventListener("click", () => {
-        document.querySelectorAll(".quiz-box").forEach((btn) => btn.classList.remove("selected"));
+        document
+          .querySelectorAll(".quiz-box")
+          .forEach((btn) => btn.classList.remove("selected"));
         button.classList.add("selected");
         selectedAnswerButton = button;
       });
-  
+
       quizOptionsContainer.appendChild(button);
     });
-  
-    document.getElementById("question-number").textContent = currentQuestionIndex + 1;
+
+    document.getElementById("question-number").textContent =
+      currentQuestionIndex + 1;
     selectedAnswerButton = null;
     enableFiftyFiftyButton();
     errorPopup.style.display = "none";
@@ -478,57 +476,51 @@ function highlightCorrectAndWrongAnswers() {
     timerElement.textContent = formatTime(countdownTime);
     startTimer();
   }
-  
 
   // Handle the submission of an answer when the "submit" button is clicked
   submitButton.addEventListener("click", () => {
     submitButton.disabled = true;
-    // Ensure the selected answer button exists before proceeding
-    const selectedAnswerButton = document.querySelector(".quiz-box.selected");
-  
+    selectedAnswerButton = document.querySelector(".quiz-box.selected");
     // Check if no answer is selected
     if (!selectedAnswerButton) {
       errorPopup.style.display = "block";
       return;
-    } 
-  
-    else {
+    } else {
       // Stop the timer once an answer is selected
       clearInterval(timer);
-  
+
       // Get the current question and correct answer
       const currentQuestion = questions[currentLevel][currentQuestionIndex];
       const correctAnswer = currentQuestion.correct;
-  
+
       // Compare the selected answer to the correct one
       if (selectedAnswerButton.innerText === correctAnswer) {
-        score++;  // Increment score for correct answer
+        score++; // Increment score for correct answer
         document.getElementById("score").textContent = score;
-        showAnswerPopup(true);  // Show correct answer popup
+        showAnswerPopup(true); // Show correct answer popup
       } else {
-        showAnswerPopup(false);  // Show wrong answer popup
+        showAnswerPopup(false); // Show wrong answer popup
       }
-  
+
       // Show the next question or results
       nextQuestionButton.style.display = "block";
-  
+
       if (currentQuestionIndex === questions[currentLevel].length - 1) {
-        nextQuestionButton.textContent = "Results";  // On last question, show "Results"
+        nextQuestionButton.textContent = "Results"; // On last question, show "Results"
       } else {
-        nextQuestionButton.textContent = "Next";  // Otherwise, show "Next"
+        nextQuestionButton.textContent = "Next"; // Otherwise, show "Next"
       }
     }
   });
-  
 
   // Display an error popup if no answer is selected
   function showErrorPopup() {
- 
+    console.log("No answer selected, showing error popup");
     errorPopup.innerText = "Please select an answer first.";
+   
     errorPopup.style.display = "block";
-    
+
     setTimeout(() => {
-     
       errorPopup.style.display = "none";
     }, 600);
   }
@@ -536,13 +528,13 @@ function highlightCorrectAndWrongAnswers() {
   // Handle the "Next" button click to load the next question or show the results
   nextQuestionButton.addEventListener("click", () => {
     submitButton.classList.remove("no-hover");
-    submitButton.disabled = false;
+  
     clickSound.currentTime = 0;
     clickSound.play();
     popup.style.display = "none";
-    submitButton.disabled = false;  // Re-enable the submit button
     
-
+    submitButton.disabled = false; // Re-enable submit button
+    
 
     currentQuestionIndex++;
 
@@ -571,13 +563,13 @@ function highlightCorrectAndWrongAnswers() {
         }
       });
       submitButton.disabled = true;
-      submitButton.style.pointerEvents = "none";  // Prevent hover effects
+      submitButton.style.pointerEvents = "none"; // Prevent hover effects
       submitButton.style.animation = "none"; // Remove any animations like bounce
       popupMessage.textContent = "Time's up!";
       popup.style.display = "block";
       nextQuestionButton.textContent = "Next";
       nextQuestionButton.style.display = "block";
-    }, 500);
+    }, 400);
   }
 
   // Show the certificate pop-up with the player's score
@@ -586,7 +578,6 @@ function highlightCorrectAndWrongAnswers() {
     certificatePopup.classList.add("show");
     overlayy.style.display = "block";
     certificateMessage.innerHTML = `<p>You've scored ${score} out of ${questions[currentLevel].length}.</p><p>Total points: ${score}</p>`;
-
   }
 
   // Close the certificate pop-up when the close button is clicked
@@ -620,11 +611,10 @@ function highlightCorrectAndWrongAnswers() {
       }
     });
 
-    if (!isCorrect &&  selectedAnswerButton) {
+    if (!isCorrect && selectedAnswerButton) {
       selectedAnswerButton.style.backgroundColor = "#f44336";
       selectedAnswerButton.style.color = "white";
     }
-
 
     // ✅ Play sound effect
     const correctSound = document.getElementById("correct-sound");
@@ -637,10 +627,7 @@ function highlightCorrectAndWrongAnswers() {
       popupMessage.textContent = "Wrong!";
     }
     submitButton.classList.add("no-hover");
-    submitButton.disabled = true; // 
+    submitButton.disabled = true; //
     popup.style.display = "block";
-
-    
   }
-
 });

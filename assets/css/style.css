@@ -21,16 +21,24 @@ body {
 
 /* Add this to your CSS file */
 /* Disable hover and bounce effect when a question is answered */
-.no-hover {
+#submitAnswer.no-hover {
   pointer-events: none;
   animation: none !important;
   transition: none !important;
   transform: none !important;
+  background-color: darkslategrey; /* behåller grundstilen */
+  color: #ffcc00;
+  cursor: default;
+
 }
 
 #submitAnswer.no-hover:hover {
-  background-color: inherit; /* or same as default */
+  
   cursor: default;
+  color: #ffcc00;
+  background-color: darkslategrey;
+  transform: none;
+
 }
 
 
